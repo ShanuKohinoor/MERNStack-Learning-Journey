@@ -1,0 +1,4 @@
+Q: What is immutability in Redux?
+    A: Immutability means not modifying the existing state directly.
+      Instead, a new updated state is created. Redux Toolkit uses Immer, 
+       allowing us to write mutation-like code while keeping state updates immutable internally.

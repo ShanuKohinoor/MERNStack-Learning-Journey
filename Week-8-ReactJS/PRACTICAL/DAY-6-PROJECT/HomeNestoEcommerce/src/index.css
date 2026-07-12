@@ -1,0 +1,31 @@
+:root {
+  --bg: #F5F5F5;        /* ash */
+  --white: #FFFFFF;
+  --black: #111111;
+  --gold: #D4AF37;
+  --red: #E53935;
+  --green: #2E7D32;
+  --border: #E0E0E0;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App background */
+body {
+  background: var(--bg);
+  color: var(--black);
+  overflow-x: hidden;
+
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

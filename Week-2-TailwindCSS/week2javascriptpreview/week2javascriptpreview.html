@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript html preview</title>
+</head>
+<body>
+
+<h1 id="head">hello world</h1>
+<input type="button" value="color" id="btn">
+
+
+
+
+    <script>
+        var heading= document.getElementById("head");
+        var btn=document.getElementById("btn");
+
+        btn.addEventListener("click",changeColor);
+        function changeColor(){
+            heading.style.color="red";
+
+        }
+        heading.addEventListener("mouseover",changeBG);
+          function changeBG(){
+            heading.style.backgroundColor="blue";
+          }
+
+        
+    </script>
+</body>
+</html>

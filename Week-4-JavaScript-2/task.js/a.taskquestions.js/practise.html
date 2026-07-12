@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+                              <!--DEBOUNCE
+                              
+q.1 You have a button on a webpage. When the user clicks the button, you want to log "Button clicked!", but only if the user stops clicking for at least 2 seconds.
+
+        Write a JavaScript function to implement this behavior using debounce.
+
+               
+                              
+                              -->
+
+    <button type="button"  id="myBtn">CLICKED</button>
+
+
+    <script>
+
+  function clicks(){
+    console.log("Button Clicked")
+  }
+
+function debounce(fctn,delay) {
+    let Timer;
+
+    return function(){
+        clearTimeout(Timer);
+        Timer = setTimeout(fctn,delay)
+    }
+    
+}
+
+
+
+
+        const btn = document.getElementById("myBtn")
+        const debounced = debounce(clicks,2000)
+        btn.addEventListener('click',debounced)
+
+        
+
+    </script>
+
+
+
+<!--Q2. You have a search input box on a webpage. When the user types in the search box, you want to call a function searchQuery that fetches search results, but only if the user stops typing for at least 2 seconds. Write a JavaScript function using debounce to implement this behavior.-->
+
+<input type="text" placeholder=" search" id="search">
+
+
+<script>
+    function searchQuery(){
+        console.log("search completed")
+    }
+
+    function debounce1(fctn,delay){
+        let Timer;
+        return function() {
+            clearTimeout(Timer);
+            Timer = setTimeout(fctn,delay);
+            
+        }
+    }
+    const txt = document.getElementById("search")
+    const debounced1 = debounce1(searchQuery,2000)
+    txt.addEventListener("input",debounced1)
+</script>
+
+
+<!--You have a "Submit" button on a form. You want to prevent the user from clicking the submit button multiple times quickly by only allowing the submit action to happen if the user stops clicking the button for 3 seconds.
+
+Task:
+Write a JavaScript function using debounce that logs "Form submitted" only if the user stops clicking the submit button for 3 seconds.-->
+
+<form id="myForm" >
+    <label>
+        Name:<input type="text" id="name" name="name">
+    </label>
+    <br>
+    <label>
+        Age:<input type="text" id="age" name="age">
+    </label>
+    <br>
+    <button type="submit" id="myBtn1" >Submit</button>
+</form>
+
+<script>
+    function myClick(event) {
+        event.preventDefault();
+        console.log("Form Submitted");
+        
+    }
+ 
+
+    function debounce2(function1,delay) {
+        let Timer;
+
+        return function (event) {
+            clearTimeout(Timer);
+            Timer = setTimeout(()=>function1(event),delay)   
+        }
+        
+    }
+    const a = document.getElementById("myForm")
+    const debounced2 = debounce2(myClick,3000)
+    a.addEventListener("submit",debounced2)
+
+                     //  i didnt get the output...want to check what the mistake is
+    
+</script>
+                                           
+
+</body>
+</html>

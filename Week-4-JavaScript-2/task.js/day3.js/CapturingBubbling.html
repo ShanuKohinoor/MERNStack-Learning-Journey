@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+</head>
+<body>
+    <!--
+    <div id="outer"  style=" display: flex; justify-content: center; align-items: center; width: 200px; background-color:rgb(194, 45, 45); height: 200px;">
+        <div id="inner" style="width: 50px; background-color: blue;  height: 50px;">
+        </div>
+
+    </div>
+
+    <script>
+        let outer = document.getElementById('outer')
+        let inner = document.getElementById('inner')
+
+        outer.addEventListener('click',()=>
+        console.log('Outer Bubble'));
+
+        outer.addEventListener('click',()=>console.log('Outer Capture'));
+
+        inner.addEventListener('click',()=>
+        console.log('Inner Bubble'));
+        
+        inner.addEventListener('click',()=>
+        inner.textContent='clicked')
+         
+        inner.addEventListener('click',()=>console.log('Inner Capture'),true);
+        
+    </script>
+
+-->
+
+<!--Tricky questions
+  
+
+Q 1. What is the difference between event bubbling and event capturing? Which one is the default in JavaScript event handling?
+  Answer:- Event Capturing:-When an event happens, event starts from the window and goes down to the DOM tree to the target element.
+           Event Bubbling:- In this event starts from the target and goes up to the parent(its ancestor)
+
+         In Javascript Event Bubbling is default.
+
+
+Q 2.Given the following code, what will be the order of console logs if you click on the <span> element?
+   
+    1. Without third argument-->
+    <div id="outer" style="width: 200px; background-color:gray;">
+        <button id="inner"  style="width: 100; background-color: rgb(3, 78, 78);">
+            <span id="label">Click me</span>
+        </button>
+    </div>
+<script>
+    const outer1 = document.getElementById('outer');
+    const inner1 = document.getElementById('inner');
+    const label = document.getElementById('label');
+
+    outer1.addEventListener(("click"),()=>console.log('outer1'))
+    inner1.addEventListener(("click"),()=>console.log('inner'))
+    label.addEventListener(("click"),()=>console.log('label'))
+
+    // When click on <span>, Output will be
+            //label
+            //inner
+            //outer1
+                  //Explanation:- When i click on label(<span>),-> event bubbles upto inner->then to outer1
+
+    // When click on button, Output is
+           //inner 
+           // outer1
+                  //Explanation:- When i click on button,->event bubbles upto outer
+
+    // When click on outer, Output is
+          // outer1
+
+</script>
+
+
+
+   <!--2. With third argument(false)-->
+
+    <div id="outer" style="width: 200px; background-color:rgb(88, 25, 25);">
+        <button id="inner"  style="width: 150; background-color: blueviolet;">
+            <span id="label">Click me</span>
+        </button>
+    </div>
+<script>
+    const outer2 = document.getElementById('outer');
+    const inner2 = document.getElementById('inner');
+    const label2 = document.getElementById('label');
+
+    outer2.addEventListener(("click"),()=>console.log('outer2'),false)
+    inner2.addEventListener(("click"),()=>console.log('inner2'),false)
+    label2.addEventListener(("click"),()=>console.log('label2'),false)
+
+    // When click on <span>, Output will be
+            //label2
+            //inner2
+            //outer2
+                  //Explanation:- When i click on label(<span>),-> event bubbles upto inner->then to outer1
+
+    // When click on button, Output is
+           //inner2
+           //outer2
+                  //Explanation:- When i click on button,->event bubbles upto outer
+
+    // When click on outer, Output is
+          // outer2                                        -->
+          
+</script>
+
+
+
+     <!--With third argument(true)-->
+    <div id="outer" style="width: 200px; background-color:rgb(13, 216, 40);">
+        <button id="inner" style="width: 100; background-color: blue;">
+            <span id="label">Click me</span>
+        </button>
+    </div>
+<script>
+
+    const outer3 = document.getElementById('outer');
+    const inner3 = document.getElementById('inner');
+    const label3 = document.getElementById('label');
+
+    outer3.addEventListener(("click"),()=>console.log('outer3'),true)
+    inner3.addEventListener(("click"),()=>console.log('inner3'),true)
+    label3.addEventListener(("click"),()=>console.log('label3'),true)
+
+    // When click on <span>, Output will be
+            //outer3
+            //inner3
+            //label3
+                  //Explanation:- When i click on label(<span>),->event starts from outer ->then to inner->then to <span>
+                     //Because when we give 'true' in addEventListener, the event starts from top (outer (grand parent/parent)) to bottom(inner(child)).
+                     //That means it starts capturing phase first instead of bubbling phase.
+    // When click on button, Output is
+           //outer3
+           // inner3
+                  //Explanation:- When i click on button,->event 
+
+    // When click on outer, Output is
+          // outer3                                         -->
+
+</script>
+<script>
+
+ //Q.3 If we use both true and false in same 
+label.addEventListener("click", ()=>console.log("label-capture"), true);
+label.addEventListener("click", ()=>console.log("label-bubble"), false);
+
+             //capturing will always take what first is. Here it will take true first. So output will be:-
+                  //label-capture
+                  //label-bubble
+
+
+
+//Q.4
+document.body.addEventListener("click", (e) => {
+  e.stopPropagation(); // stop bubbling & capturing
+  alert("Blocked!");
+}, true); // capturing
+
+// Stops event from going down or bubbling up.	This will run before  other element  sees the event.
+
+
+//Q.5
+document.body.addEventListener("click", (e) => {
+  e.stopPropagation(); // stop bubbling & capturing
+  alert("Blocked!");
+}, false); // Bubbling
+
+// Stops event from going up. This will run before  other element  sees the event.
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body >
+
+<div id="Profile hidden">
+    <div id="Modal" class="flex flex-col items-center space-y-4 mt-4">
+        <img src="https://static.vecteezy.com/system/resources/previews/022/086/467/original/arab-woman-face-covered-with-hijab-muslim-woman-muslim-girl-avatar-avatar-icon-in-flat-style-smiling-girl-in-a-scarf-isolated-illustration-vector.jpg" alt="Profile pic" class="border-red-500 w-80" >
+    <h1  class="font-bold text-gray-600">Shanu Shahanas Kohinoor</h1>
+    <p class="font-bold text-gray-600">Email:shahanaskohinoor@gmail.com</p>
+    <div class="justify-center ">
+        <div><a  href="#logout"><button class="hover:text-green-500 bg-green-100 border border-green-500">Log out</a></div>
+        <div><a  href="#close"><button class="hover:text-green-500 bg-green-100 border border-green-500 items-center">Close</a>
+    </div>
+    
+</div>
+    </div>
+<script>
+const profile=document.getElementById('profile');
+const Modal=document.getElementById('Modal');
+
+profile.addEventListener('click',()=>{
+    Modal.classList.toggle('hidden');
+}
+)
+
+</script>
+</body>
+</html>

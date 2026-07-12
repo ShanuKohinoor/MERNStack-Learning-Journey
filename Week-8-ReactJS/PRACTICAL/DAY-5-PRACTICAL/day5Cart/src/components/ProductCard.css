@@ -1,0 +1,30 @@
+.productContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    font-size: 18px;
+}
+
+
+.productCard{
+    border: 1px solid #bdb7b7;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+.productCard h2{
+    font-size: medium;
+}
+.productCard p{
+    font-size: large;
+    color: red;
+}
+
+
+.productCard img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+}

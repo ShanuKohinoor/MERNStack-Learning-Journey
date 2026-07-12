@@ -1,0 +1,19 @@
+Handle asynchronous operations using Redux.
+
+Topics Covered:
+    • Middleware Concept
+    • Redux Thunk
+    • createAsyncThunk()
+    • Handling:
+        ◦ pending
+        ◦ fulfilled
+        ◦ rejected states
+    • API Integration using Axios
+    • Loading & Error State Management
+    • Redux DevTools
+
+Task:
+    • Fetch tasks from public API.
+    • Store tasks in Redux.
+    • Display loading spinner.
+    • Show error message if API fails.

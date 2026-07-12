@@ -1,0 +1,23 @@
+<!--Code execution explanation in details:- 
+
+          let x = 10;     (let hoisted but uninitialized.)
+                        JS prepares memory for 'let' and 'const', but not given undefined like var.
+                        Hoisted ,but not initialized.
+                        They stay in the Temporal Dead Zone (TDZ) until the line where they're declared.
+                        Only when the line let x = 10 runs, it becomes 10.
+
+
+          let y = 20;      (same here)
+
+          function add(){
+            let result = x + y;
+            console.log("Addition:",result);
+          }
+
+          function greet(){
+            console.log("Hello")
+          }
+
+          add();
+          greet();
+

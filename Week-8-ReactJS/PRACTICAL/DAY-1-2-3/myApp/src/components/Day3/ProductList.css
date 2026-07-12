@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: navy
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 20px;
+}

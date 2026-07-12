@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getElementsByClassName vs querySelector Demo</title>
+</head>
+<body>
+
+  <h2>Notes Example</h2>
+
+  <p class="note">First Note</p>
+  <p class="note">Second Note</p>
+  <p class="note">Third Note</p>
+
+  <button id="styleAll">Style All Notes (Blue)</button>
+  <button id="styleFirst">Style First Note (Red)</button>
+
+  <script>
+    // Style all notes with getElementsByClassName
+    document.getElementById("styleAll").onclick = function() {
+      const notes = document.getElementsByClassName("note");
+      for (let i = 0; i < notes.length; i++) {
+        notes[i].style.color = "blue";
+      }
+    };
+
+    // Style first note with querySelector
+    document.getElementById("styleFirst").onclick = function() {
+      const firstNote = document.querySelector(".note");
+      firstNote.style.color = "red";
+    };
+  </script>
+
+</body>
+</html>

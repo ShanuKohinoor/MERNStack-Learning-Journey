@@ -1,0 +1,32 @@
+<!--Traverse DOM, use event bubbling, and throttle scroll event-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+   <div id="Container"   style="display: flex; flex-direction: column; justify-content: center; align-items: center; width:100%; background-color:rgb(144, 144, 187);">
+      <button  id="myBtn" type="button" style="width: 300px; background-color: aqua;">Click me</button>
+      <p id="newChild" style="color: black; font-style: italic;">I am a child</p>
+   </div>
+
+   <script>
+       const contnr = document.getElementById("Container")
+       const Btn = document.getElementById("myBtn")
+       const child = document.getElementById("newChild")
+       contnr.addEventListener("click",()=>{
+        Btn.textContent = "Clicked"
+        child.style.color = "red";
+       console.log("Clicked element:",event.target.textContent,)
+       },true)
+
+   </script>
+
+</body>
+</html>

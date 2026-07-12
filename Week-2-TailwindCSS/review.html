@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <title>Review task Contact form</title>
+</head>
+<body class="bg-gray-50">
+  <button type="button" id="contact" class="bg-blue-500 border-2">Contact</button>
+  <div id="Modal" class="fixed inset-0 w-full h-screen border-2 bg-blue-200 hidden">
+  <div class="justify-items-center">
+     <h1>Contact Us</h1>
+    <form id="myForm" class="border-2 w-96 h-48">
+      <label for="name" class="text">Name</label>
+      <input type="text"  id="name" name="name" placeholder="Enter your name" class=" mb-6  border-2"required minlength="3">
+      <br>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your Email" class=" mb-6 border-2"required>
+      <button type="submit" id="Submit" name="email" class="bg-gray-100 border-2 border-green-900">Submit</button>
+      <button type="button" id="close" class="bg-gray-100 border-2 w-80">Close</button>
+    </form>
+  </div>
+  </div>
+<script>
+ const myForm=document.getElementById('myForm');
+ const name=document.getElementById('name');
+ const email=document.getElementById('email');
+ const Modal=document.getElementById('Modal');
+ const contact=document.getElementById('contact');
+ const submit=document.getElementById('Submit');
+ const close=document.getElementById('close');
+
+
+  myForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      if(myForm.checkValidity()){
+        console.log('Submitted Successfully');
+      }else{
+        console.log('Error');
+      }
+      submit.textContent='Sending';
+      setTimeout(()=>
+      submit.textContent='send',3000);
+      alert('Success');
+  });
+     contact.addEventListener('click',(e)=>{
+     Modal.classList.remove('hidden');
+    }) ;  
+
+    close.addEventListener('click',(e)=>{
+      Modal.classList.add('hidden');
+    })
+
+</script>
+
+
+</body>
+</html>

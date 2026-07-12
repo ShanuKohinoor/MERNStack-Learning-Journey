@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=Add, initial-scale=1.0">
+    <title>AddEventListener</title>
+</head>
+<body>
+    <!--addEventListener:-Used to add event handler to the existing element
+
+    Syntax:-element.addEventListener('click', handlerFunction);
+    Eg:--->
+
+      <button id="myButton">Click Me</button>
+
+      <script>
+           function sayHello() {
+           alert("Hello! You clicked the button.");
+           }
+
+         const btn = document.getElementById("myButton");
+
+         btn.addEventListener("click", sayHello);          // Adding the click event listener
+
+        </script>
+
+
+
+    <!--removeEventListener :-Used to remove previously attached event handler
+    Syntax:- element.removeEventListener('click', handlerFunction);
+
+    Eg:--->
+
+
+          <button id="clickBtn">Click Me</button>
+          <button id="removeBtn">Remove Listener</button>
+
+          <script>
+                  function showMessage() {
+                      alert("You clicked the button!");
+                       }
+
+                      const clickBtn = document.getElementById("clickBtn");
+                      const removeBtn = document.getElementById("removeBtn");
+
+                      clickBtn.addEventListener("click", showMessage);       // Add the event listener
+
+
+                     removeBtn.addEventListener("click", function () {       // Remove the event listener
+
+                     clickBtn.removeEventListener("click", showMessage);
+                     alert("Click listener removed!");
+                     });
+          </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Tricky Questions-->
+    
+    <!--Question 1. Why doesn’t this code remove the event listener?-->
+        <script>
+            button.addEventListener('click', function() {
+             alert('Clicked!');
+              });
+
+             button.removeEventListener('click', function() {
+            alert('Clicked!');
+            });
+                        //Answer:
+                           //Because here we pass a different anonymous function to removeEventListener.
+                           //Even if looks the same, it's a new function in its memory.
+                           // we can solve by giving named function
+
+        </script>
+
+        <!--Question 2. What will happen in this code?-->
+        <script>
+                      function greet() {
+                      alert('Hi!');
+                      }
+
+                      btn.addEventListener('click', greet);
+                      btn.removeEventListener('click', greet);
+                      btn.click();
+                                     //Answer:
+                                         //Nothing happens 
+                                         // greet was added and  removed before the click, so the alert won't show.
+        </script>
+
+
+
+</body>
+</html>

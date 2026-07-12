@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mall of Kohinoor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+            <header class="flex justify-between items-center w-full px-6 py-4 bg-green-600">
+
+    
+        <div class="flex items-center bg-gray-50">
+            <img src="https://th.bing.com/th/id/OIP.cRiOuDw2I-M30pTIKUqyfQHaGx?cb=iwp1&rs=1&pid=ImgDetMain" alt="Mall of Kohinoor Logo"class="h-48"/>
+    
+        </div>
+        
+          <nav class="flex flex-row space-x-10"> 
+            <a href="#about" class="text-3xl  font-medium hover:text-green-500 transition duration-300 ">
+                About 
+            </a>
+            <a href="#services" class="text-3xl font-medium hover:text-green-500 transition duration-300">
+                Services
+            </a>
+            <a href="#features" class="text-3xl font-medium hover:text-green-500 transition duration-300">
+                Features
+            </a>
+            <a href="#contact" class="text-3xl font-medium hover:text-green-500 transition duration-300">
+                Contacts
+            </a>
+
+          </nav>
+             <i id="profileIcon" class="fas fa-user-circle text-3xl text-white cursor-pointer"></i>
+
+    </header>     
+      
+  <main>
+    <section class="relative h-[90vh]  bg-center flex items-start justify-center text-white"
+        style="background-image: url('./kohinoor mall/IMG-20250508-WA0246.jpg');">
+        <div class="absolute inset-0-gray bg-opacity-50"></div>
+             
+           
+               <div class=" z-10 text-center px-4">
+                 <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-green-900">Welcome to Mall of Kohinoor</h1>
+                 <p class="text-xl md:text-2xl mb-6 text-green-600">Your one-stop destination for everything you love with family.</p>
+               </div>  
+       
+    </section>
+       
+    <section  class="text-center mx-auto max-w-6xl p-4 bg-green-50" id="about">
+        <h2 class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-transparent to-green-400 p-2 transition-all duration-500 hover:from-green-400 hover:to-transparent">About Us</h2>
+            <p class= "text-green-700">
+          Welcome to <strong>Mall of Kohinoor</strong> your one-stop destination for shopping, dining, and family fun!
+          Located in the heart of the community, we bring together top brands, local businesses, and exciting experiences
+          all under one roof. Our goal is to create a vibrant space where people of all ages can enjoy, explore, and
+          make lasting memories.
+
+        </p>
+        <div class="relative mt-6 overflow-hidden">
+            <div class="flex space-x-4 justify-between transition-transform duration-500 ease-in-out transform hover:translate-x-15" id="shops">
+
+                <img class="w-50 h-48"src="https://th.bing.com/th/id/R.46552d2f8315ffd66f646c9105222508?rik=y8N%2bEolNNOe%2baA&pid=ImgRaw&r=0" alt="AlRidha">
+                <img class="w-50 h-48"src="https://marupacha.in/wp-content/uploads/2024/01/IMG-20240131-WA0040-1024x1024.jpg" alt="Marupacha">
+                <img class="w-50 h-48"src="https://media-cdn.tripadvisor.com/media/photo-m/1280/19/08/70/9a/khaleez.jpg" alt="Khaleez">
+                <img class="w-50 h-48"src="https://lh5.googleusercontent.com/p/AF1QipMPcon7Y1lzMo-LxGWfDxOCYpeETfsJX1uURtBK=w408-h271-k-no"alt="japan square">
+            </div>
+
+        
+        </div>
+
+<section id="services" class="py-8 bg-green-50">
+    <h2 class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-transparent to-green-400 p-2 transition-all duration-500 hover:from-green-400 hover:to-transparent">Our Services at Mall</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto px-4">
+
+<div class="flex items-center space-x-4">
+        <i class="fa-solid fa-shop text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Retail Outlets</h3>
+          <p><button class="hover:bg-green-300"onclick="myAlert('You have clicked Electronis,groceries and life style brand')" >Electronics, groceries, and lifestyle brands.</button></p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-clock text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Watches & Repair</h3>
+        <p><button class="hover:bg-gray-50"onclick="myAlert('You have clicked for Watches and Repairs')">Branded and Regular Watches and regular watches with service support.</button></p>
+
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-spray-can-sparkles text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold px-4 pl-6">Perfumes</h3>
+          <p> <button class="hover:bg-gray-50"onclick="myAlert('You have clicked for branded and custom made perfumes')">Branded and custom-made fragrance collections.</button></p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-utensils text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Food Court</h3>
+          <p><button class="hover:bg-gray-50"onclick="myAlert('You have clicked for searching Delicious meals')">Delicious meals including Alridha Fried Chicken, Khaleez Dine, Marupacha and more.</button></p>
+
+        </div>
+      </div>
+  
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-baby text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Feeding Room</h3>
+          <p><button class="hover:bg-green" onclick="myAlert('You have clicked for Feeding Room facility')">Comfortable space for mothers and babies.</button></p>        
+        </div>
+      </div>
+  
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-headset text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Help Desk</h3>
+          <p><button class="hover:bg-gray-50" onclick="myAlert('You have clicked  help desk for assistance with inquiries or complaints')">Desk is to assist with any inquiries or complaints.</button></p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-mosque text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Prayer Room</h3>
+          <p> <button class="hover:bg-gray-50"onclick="myAlert('You have clicked for prayer room')">Quiet and accessible space for worship.</button></p>
+        </div>
+      </div>
+  
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-car text-5xl text-gray-600"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Free Parking</h3>
+          <p><button class="hover:bg-gray-50"onclick="myAlert('You have clicked for free parking')">Spacious and secure parking facility.</button></p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+  <section id="features" class="py-8 bg-green-50">
+    <h2 class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-transparent to-green-400 p-2 transition-all duration-500 hover:from-green-400 hover:to-transparent">Mall Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto px-4">
+    <div class="bg-green-100 rounded-xl shadow-md p-6 transform transition duration-300 hover:scale-150">
+       <div class="flex items-start space-x-4">
+          <i class="fa-solid fa-person-walking-luggage text-5xl text-gray-600"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Escalator</h3>
+            <p>Easy movement across all floors.</p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="bg-green-200 rounded-xl shadow-md p-6 transform transition duration-300 hover:scale-150">
+        <div class="flex items-start space-x-4">
+          <i class="fa-solid fa-fan text-5xl text-gray-600"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Centralized AC</h3>
+            <p>Comfortable shopping experience.</p>
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="bg-green-100 rounded-xl shadow-md p-6 transform transition duration-300 hover:scale-150">
+        <div class="flex items-start space-x-4">
+          <i class="fa-solid fa-people-roof text-5xl text-gray-600"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Family-Friendly</h3>
+            <p>Designed with all age groups in mind.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="bg-green-200 rounded-xl shadow-md p-6 transform transition duration-300 hover:scale-150">
+        <div class="flex items-start space-x-4">
+          <i class="fa-solid fa-shield-halved text-5xl text-gray-600"></i>
+          <div>
+            <h3 class="text-xl font-semibold">24/7 Security</h3>
+            <p>Monitored with CCTV for your safety.</p>
+          </div>
+        </div>
+      </div>
+  
+      </div>
+  </section>
+  
+  </main>
+  
+<div id="profile" class="hidden fixed inset-0 bg-green-800 bg-opacity-50 flex justify-center items-center z-50">
+    <div id="Modal" class="flex flex-col items-center space-y-4 mt-4">
+        <img src="https://static.vecteezy.com/system/resources/previews/022/086/467/original/arab-woman-face-covered-with-hijab-muslim-woman-muslim-girl-avatar-avatar-icon-in-flat-style-smiling-girl-in-a-scarf-isolated-illustration-vector.jpg" alt="Profile pic" class="border-red-500 w-80" >
+        <h1  class="font-bold text-black text-3xl">Shanu Shahanas Kohinoor</h1>
+        <p class="font-bold text-black text-3xl">Email:shahanaskohinoor@gmail.com</p>
+        <div class="flex flex-col items-center space-y-4">
+
+          <button id="logoutProfile" class="hover:text-green-600 bg-green-500 border rounded border-green-900 w-30">Log out</button>
+          <button id="closeProfile" class="hover:text-green-600 bg-green-500 border rounded border-green-900 items-center w-30">Close</button>
+
+        </div>
+    
+    </div>
+</div>
+<section id="contact" class="py-8 bg-green-50">
+
+    <div class="flex justify-center items-center min-h-screen bg-green-900">
+
+          <form id="form" class="bg-green-100 rounded-md w-96 text-center h-[600px] overflow-hidden">
+  
+   
+          <h1 class="text-3xl text-center text-green-900">Contact Us</h1>
+          <br>
+            <div class="">
+             <label for="firstName" class="text-green-900"> First Name </label>
+             <input type="text" placeholder="Enter Your First Name" id="firstName" class="border rounded-full bg-gray-50 w-80 h-10"><br>
+             <span id="myname"  class="hidden">invalid name</span>
+             <br>
+             <label for="secondName" class="text-green-900"> Second Name </label>
+             <input type="text" placeholder="Enter Your Second Name" id="secondName" class="border rounded-full bg-gray-50 w-80 h-10"><br>
+             <span id="myname2"  class="hidden">invalid name</span>
+             <br>
+             <label for="email" class="text-green-900">Email id</label>
+             <input type="email" placeholder="ex@gmail.com" id="email" class="border rounded-full bg-gray-100 w-90 h-10">
+             <span id="myemail"  class="hidden">invalid email</span>
+             <br>
+             <label for="phone" class="text-green-900">Contact Number</label>
+             <input type="text" placeholder="Valid Mobile Number to Contact You" id="phone" class="border rounded-full bg-gray-50  w-80 h-10">
+             <br>
+             <label for="message"class="text-green-900">Message</label>
+             <textarea name="message" id="message" placeholder="Enter a message" class="border rounded-md bg-gray-50 w-90 h-26"></textarea>
+             <span id="mymessage"  class="hidden">invalid message</span>
+             <div id ="live" class="mt-2 text-green-900 text-sm text-left">Live Preview:</div>
+             <br>
+             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center ">Submit</button>
+             <p id="sendDelay" class="text-green-300"></p>
+            </div>
+        </form>
+       
+    </div>
+
+</section>
+
+<div id="bg-change" class="bg-gray-100 transition-colors duration-300 min-h-screen">
+
+
+    <div class="flex justify-center gap-4 mb-6">
+      <button onclick="changeBackground()"
+        class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded">
+        Change Background
+      </button>
+    </div>
+
+    <div class="faq-container items-center justify-center min-h-screen py-4">
+    
+    <h2 class="text-3xl font-bold mb-4 text-center text-green-700">Frequently Asked Questions(FAQs)</h2>
+
+
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-green-200 p-4 rounded font-semibold text-gray-700">
+                    What are the mall opening hours?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                    The mall is open from 10 AM to 10 PM every day.
+                </div>
+            </div>
+
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+                    Is parking available?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                    Yes, we have ample parking space for all visitors.
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-green-200 p-4 rounded font-semibold text-gray-700">
+                      Is there a feeding room available in the mall?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                Yes, the mall provides a comfortable and private feeding room for mothers. It is equipped with seating, changing facilities, and a peaceful atmosphere for breastfeeding.
+
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+                     Is there a prayer room available for visitors?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                     Yes, there is a prayer room available in the mall for both men and women. The room is designed to provide a peaceful and clean environment for visitors to pray.
+
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-green-200 p-4 rounded font-semibold text-gray-700">
+                     Will there be a play area for kids in the mall?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                      Yes,its under construction                
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+                       Does the mall have a food court?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                       Yes, the mall features a spacious food court offering a wide variety of cuisines. Whether you're craving fast food, traditional meals, or healthy options, there's something for everyone.
+
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-green-200 p-4 rounded font-semibold text-gray-700">
+                      Is the mall family-friendly?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                   Absolutely! Kohinoor Mall is designed with families in mind. With amenities like the food court, and comfortable seating areas, it's an ideal destination for family outings. The mall's layout and facilities cater to the needs of visitors of all ages.
+
+
+                </div>
+            </div>
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+                      Can I book shops or kiosks for business?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                    Yes, Mall of Kohinoor provides rental spaces for shops,  andkiosks. Contact mall management for leasing details.
+
+                </div>
+            </div>
+
+            <div>
+                <div onclick="answer(this)"
+                     class="cursor-pointer bg-green-200 p-4 rounded font-semibold text-gray-700">
+                    Are pets allowed in the mall?
+                </div>
+                <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+                    Pets are not allowed inside the mall.
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script>
+    function myAlert(message) {
+      alert(message);
+    }
+const profileIcon = document.getElementById('profileIcon');
+const profileModal = document.getElementById('profile');
+const closeProfile = document.getElementById('closeProfile');
+
+profileIcon.addEventListener('click', () => {
+    profileModal.classList.toggle('hidden');
+});
+
+closeProfile.addEventListener('click', () => {
+    profileModal.classList.add('hidden');
+});
+       const form=document.getElementById('form');
+       const firstName=document.getElementById('firstName');
+       const secondName=document.getElementById('secondName');
+       const email=document.getElementById('email');
+       const phone=document.getElementById('phone');
+       const myname=document.getElementById('myname');
+       const myname2=document.getElementById('myname2');
+       const myemail=document.getElementById('myemail');
+       const message=document.getElementById('message')
+       const live=document.getElementById('live')
+
+
+        form.addEventListener('submit',(e)=>{
+             e.preventDefault();  
+
+             let isValid=true;
+
+        if(firstName.value.trim().length<3){
+            myname.classList.remove('hidden');
+            myname.textContent="invalid name";
+            firstName.classList.add('border-red-800')
+            isValid= false;
+        }
+        else{
+            myname.classList.add('hidden');
+            myname.textContent="valid name";
+            firstName.classList.remove('border-red-800')
+            firstName.classList.add('border-green-800')
+        
+        }
+            if(secondName.value.trim().length<3){
+            myname2.classList.remove('hidden');
+            myname2.textContent="invalid name";
+            secondName.classList.add('border-red-800')
+            isValid= false;
+
+        }
+        else{
+            myname2.classList.add('hidden');
+            myname2.textContent="valid name";
+            secondName.classList.remove('border-red-800')
+            secondName.classList.add('border-green-800')
+        
+        }
+    
+        if (email.value.trim() === '' || !email.value.includes('@')){
+            myemail.classList.remove('hidden');
+            email.classList.remove('bg-gray-100');
+            email.classList.add('border-red-800');
+            isValid= false;
+
+        }
+        else{
+            myemail.classList.add('hidden');
+            myemail.textContent="valid email";
+            email.classList.add('border-green-800')
+        }
+        if (isValid){
+            const status=document.getElementById('sendDelay');
+            status.textContent="Sending...";
+            setTimeout(()=>{
+            status.textContent="Submitted Successfully"
+            alert("Submitted Successfully")
+
+        },2000);
+        }
+        
+    });
+
+    message.addEventListener('input', () => {
+    live.textContent = message.value;
+    });
+
+        function answer(event) {
+            const answerDiv = event.nextElementSibling; 
+            answerDiv.classList.toggle('hidden');
+        }
+     function changeBackground() {
+      const bgChange = document.getElementById("bg-change");
+
+    
+      bgChange.style.backgroundColor = "#4CAF50"; 
+    }
+
+
+
+  </script>
+  
+</body>
+      <footer class="bg-green-900 text-white py-8 px-6 ">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0">
+          
+        
+          <div>
+            <h2 class="text-2xl font-semibold mb-2">Connect With Us</h2>
+            <ul class="space-y-1 text-lg">
+              <li><i class="fa-solid fa-phone"></i> +91 9895927373</li>
+              <li><i class="fa-solid fa-phone"></i>  +91 9895854224</li>
+              <li><i class="fa-solid fa-phone"></i> +91 9562345653</li>
+              <li><i class="fa-solid fa-phone"></i> kohinoortirur@gmail.com</li>
+              <li><i class="fa-solid fa-phone"></i> Find us: Tirur Gulf Market</li>
+            </ul>
+          </div>
+
+        <div>
+             <h2 class="text-2xl font-semibold mb-2">Follow Us</h2>
+           <div class="flex flex-row space-x-4 text-3xl">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>          
+            </div>
+        </div>
+
+        <div class="text-center text-sm text-gray-400 mt-6">
+          &copy; 2025 Mall of Kohinoor. All rights reserved.
+        </div>
+      </footer>
+      
+</html>
+
+

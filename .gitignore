@@ -1,0 +1,35 @@
+# Environment variables
+.env
+**/.env
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build files
+dist/
+**/dist/
+build/
+**/build/
+
+# Logs
+*.log
+
+# Media files
+*.mp3
+*.mp4
+
+# Personal images
+WhatsApp*
+shanu.png
+
+# Large images
+*.jpeg
+*.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/

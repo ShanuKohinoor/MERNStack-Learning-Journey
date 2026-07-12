@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--Debounce 
+
+    Debounce is a technique that ensures a function is only executed after a certain period of inactivity.
+    That means, Wait until the user stops doing something, then run a function once.
+
+
+         If the event keeps triggering,timer reset the time.
+         The function runs only after once the event stops doing something,like typing in a search box.
+         
+-->
+
+<input type="text" id="myInput"   placeholder="Search something...">
+
+<script>
+
+  // Step 1. This is the function we have to run when a user stop typing
+   function sayHello(){
+    console.log("User typed something.")
+   }
+
+
+  // Step 2. Debounce function to delay above this function.
+            // debounce creates a special wrapper around a function to delay its execution.
+            //it is used to run the function only for one time when stop typing.
+
+            // Debounce cancels previous timer if exists.
+            // And starts a new one.
+
+            //Use of debounce in this case:-
+                 //Without debounce: sayHello() runs 5 times
+                 //With debounce: sayHello() runs only once, after you stop typing for 1 second
+
+
+
+
+   function debounce(functn,delay){  
+                        //function:- Creating a function.
+                        //debounce:- Name of the debounce function.
+                        //functn:- The above function(here it is sayHello)
+                        //delay:- Time to wait before running the above function
+                 
+                        
+    let Timer;   //It creates a variable timer to store the ID returned by setTimeout().
+
+                 //This ID is to cancel the previous timer using clearTimeout(timer).
+    
+    return function(){                     // returns a new function
+        clearTimeout(Timer);               // cancels previous timer
+                                           // if a timer is running already,this step will cancel that
+
+        Timer = setTimeout(functn,delay);  // Starts a new wait.
+
+                                           // This helps to start a new countdown to call functn (here sayHello) after delay in  milliseconds.
+                                          
+                                           //If the user does not type again, this timer will complete, and the function will run.
+
+                                          //If the user types again before delay, this will be cleared again in the next call.
+    };
+
+  }
+</script>
+   <!--Example for debounce with search box:
+   
+   Tricky Questions
+   
+   Q.1:-
+
+   You are building a web page with a search input box.
+
+   Every time the user types in the box, you want to log "User typed something." — but only after the user stops typing for 1 second, not on every key press.
+
+
+   
+   -->
+
+   <input  type="text" id="searchbox" placeholder="Search something">
+
+
+<script>
+      function searchProduct (){
+        console.log("User typed something")
+      }
+
+      function debounce1(funcn,delay){
+        
+      let Timer;
+      return function(){
+        clearTimeout(Timer);
+         Timer = setTimeout(funcn,delay)
+      };
+      }
+     
+      const input = document.getElementById('searchbox');   //This access the input element with id "searchbox" from the page.
+
+                                                            // It stores this input element in the variable input so you can attach events to it.
+
+
+
+      const debouncedSearch = debounce1(searchProduct,3000);   //calls debounce function and pass 2 arguments
+                                                      //   Calls your debounce1 function with:
+
+                                                           //searchProduct as the function to delay,
+
+                                                          //3000 milliseconds (3 seconds) as the delay time.
+
+                                                          //debounce1 returns a new function that waits 3 seconds of inactivity before running searchProduct.
+
+                                                          //This new debounced function is stored in debouncedSearch.
+
+      
+      input.addEventListener("input", debouncedSearch );
+
+                                                //Adds an event listener to the input box.
+
+                                                //The "input" event fires every time the user types or changes the input.
+
+                                                //When triggered, it calls debouncedSearch.
+
+                                                
+                                                //Because debouncedSearch is debounced, searchProduct will run only after 3 seconds have passed without new typing.
+
+
+
+
+</script>
+<!--You're building a note-taking app. As the user types a note, you want to auto-save their work —
+but only after they stop typing for 2 seconds, not after every single keystroke.-->
+
+<h1>Notes</h1>
+<textarea  id="notebook"  placeholder="start typing"></textarea>
+
+<script>
+   function saveDraft() {
+    console.log("Autosaved your drafts");
+   }
+
+   function debounce(fnct,delay){
+    let timer;
+    return function(){
+      clearTimeout(timer);
+      timer = setTimeout(fnct,delay);
+    };
+   }
+   const drafts = document.getElementById('notebook');
+   const debounced = debounce(saveDraft,2000);
+   drafts.addEventListener("input",debounced);
+
+
+</script>
+<script>
+const debouncedSearch1 = debounce(logSearch, 1000);
+
+input.addEventListener("input", debouncedSearch);
+
+// Cancel debounce if Escape is pressed
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    debouncedSearch1.cancel(); // ✅ Stop waiting and never call logSearch
+  }
+});
+</script>
+
+
+</body>
+</html>
+

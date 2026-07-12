@@ -1,0 +1,101 @@
+[
+  {
+    "id": 7703467,
+    "name": "Mohamed Shan Pullani",
+    "email": "shan@gmail.com",
+    "attendance": "99",
+    "year": "9",
+    "division": "r",
+    "parentMobile": "9666666888"
+  },
+  {
+    "id": 7703420,
+    "name": "Shanu Shahanas",
+    "email": "shahanas@gmail.com",
+    "parentMobile": "9345567999",
+    "attendance": "99",
+    "year": "9",
+    "division": "r"
+  },
+  {
+    "id": 5475076,
+    "name": "Faraza Pullani",
+    "email": "faraza@gmail.com",
+    "parentMobile": "9345678997",
+    "attendance": "99",
+    "year": "1",
+    "division": "B"
+  },
+  {
+    "id": 9547452,
+    "name": "Filza Pullani",
+    "email": "filza@gmail.com",
+    "year": "6",
+    "division": "w",
+    "parentMobile": "7345666656",
+    "attendance": "99"
+  },
+  {
+    "id": 9944484,
+    "name": "Fenza Pullani ",
+    "email": "fenza@gmail.com",
+    "year": "4",
+    "division": "u",
+    "parentMobile": "7592839895",
+    "attendance": "99"
+  },
+  {
+    "id": 3646146,
+    "name": "Neethu Thomas",
+    "email": "neethu@gmail.com",
+    "year": "6",
+    "division": "A",
+    "parentMobile": "9080706040",
+    "attendance": "99"
+  },
+  {
+    "id": 3883513,
+    "name": "Shamseena Majeed",
+    "email": "shamseena@gmail.com",
+    "year": "5",
+    "division": "B",
+    "parentMobile": "9010203040",
+    "attendance": "98"
+  },
+  {
+    "id": 3936986,
+    "name": "Ahamed Shamad",
+    "email": "shamad@gmail.com",
+    "year": "4",
+    "division": "B",
+    "parentMobile": "9020406070",
+    "attendance": "97"
+  },
+  {
+    "id": 3978694,
+    "name": "Mohammed Irshad",
+    "email": "irshad@gmail.com",
+    "year": "7",
+    "division": "C",
+    "parentMobile": "9040506070",
+    "attendance": "98"
+  },
+  {
+    "id": 4020221,
+    "name": "Moyi Nihad",
+    "email": "nihad@gmail.com",
+    "year": "5",
+    "division": "D",
+    "parentMobile": "9070805040",
+    "attendance": "98"
+  },
+  {
+    "id": 2045247,
+    "name": "Shareefa Mammed",
+    "email": "shareefaV@gmail.com",
+    "year": "7",
+    "division": "A",
+    "parentMobile": "9777777779",
+    "attendance": "99"
+  }
+]

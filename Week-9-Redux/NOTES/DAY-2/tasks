@@ -1,0 +1,16 @@
+Topics Covered:
+    • createSlice()
+    • Initial State
+    • Reducer Functions
+    • Action Creators
+    • Multiple Slices
+    • Combining Reducers
+    • Folder Structure (Feature-based architecture)
+    • Best Practices in Redux
+
+Task:
+    • Create:
+        ◦ authSlice
+        ◦ taskSlice
+    • Implement login/logout state using Redux.
+    • Display user info globally in Navbar.

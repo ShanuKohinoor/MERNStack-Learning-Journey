@@ -1,0 +1,26 @@
+1. What is the job of a reducer?
+
+    A reducer decides how the state should change when an action is dispatched.
+
+
+               increment()
+                  |
+                  |
+                  v
+           creates action
+                  |
+                  |
+                  v
+             dispatch()
+                  |
+                  |
+                  v
+        store receives action
+                  |
+                  |
+                  v
+        reducer handles action
+                  |
+                  |
+                  v
+            state changes

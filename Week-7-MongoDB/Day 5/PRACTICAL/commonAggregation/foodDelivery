@@ -1,0 +1,29 @@
+// [
+//   { customer: "Asha", item: "Pizza", price: 200, quantity: 2, city: "Delhi" },
+//   { customer: "Rahul", item: "Burger", price: 100, quantity: 3, city: "Delhi" },
+//   { customer: "Asha", item: "Pizza", price: 200, quantity: 1, city: "Mumbai" },
+//   { customer: "John", item: "Pizza", price: 200, quantity: 2, city: "Delhi" }
+// ]
+
+// Which item has the highest total sales from Delhi orders ?
+
+
+
+
+// Solution
+// --------
+
+//             db.orders.aggregate([
+//                  { $match: { city: 'Delhi' } },
+//                  { $project: { item: 1, totalPrice: { $multiply: ['$price', '$quantity'] } } },
+//                  { $group: { _id: '$item', totalSales: { $sum: '$totalPrice' } } },
+//                  { $sort: { totalSales: -1 } },
+//                  { $limit: 1 }
+//            ])
+
+// if we run like this,Output will be:-
+//      [ { _id: 'Pizza', totalSales: 800 } ]
+
+
+
+// Detail explanation in notes(commonAggregation.js)

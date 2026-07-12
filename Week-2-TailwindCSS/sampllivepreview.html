@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Live preview Sample</title>
+</head>
+<body>
+    <label  for="enquiry">Enquiry</label>
+    <input type="text" id="enquiry" placeholder="Start typing">
+    <p id="live">Live preview</p>
+
+    <script>
+        const enquiry=document.getElementById('enquiry');
+        const live=document.getElementById('live');
+
+        enquiry.addEventListener('input',()=>
+    {
+        live.textContent=enquiry.value;
+    });
+
+    </script>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Modal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-100">
+
+  <!--  Contact Button-->
+  <button type="button" id="contact" class="border-2 bg-gray-100 p-2 z-10 relative">
+    Contact
+  </button>
+
+  <!--  Modal-->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+    <div class="bg-white p-8 rounded shadow-lg w-96">
+      <h1 class="text-xl mb-4">Contact us</h1>
+      <!-- Form -->
+      <form id="myform">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name" class="border-2 mb-4 w-full p-1" required minlength="3">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" class="border-2 mb-4 w-full p-1" required>
+        <br>
+        <button type="submit" id="button" class="border-2 border-green-900 bg-blue-700 text-white px-4 py-1 mt-2">Submit</button>
+        <button type="button" id="close" class="border-2 border-green-800 bg-blue-500 text-white px-4 py-1 mt-2">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const myform = document.getElementById('myform');
+    const button = document.getElementById('button');
+    const contact = document.getElementById('contact');
+    const close = document.getElementById('close');
+    const modal = document.getElementById('modal');
+
+    myform.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (myform.checkValidity()) {
+        console.log('Submit successfully');
+      } else {
+        console.log('Error');
+      }
+      button.textContent = 'Sending...';
+      setTimeout(() => {
+        button.textContent = 'Submit';
+      }, 3000);
+    });
+
+    contact.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    close.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+/* PAGE BACKGROUND */
+.cartPage {
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 30px;
+}
+
+   /* QUANTITY */
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #f7f7f7;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* BUTTONS */
+.deleteBtn{
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #ff4d4f;
+
+}
+.qty button {
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: white;
+  border: 1px solid #ccc;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.qty button:hover {
+  background: #ff9900;
+  color: white;
+  border-color: #ff9900;
+  transform: scale(1.1);
+}
+
+/* QUANTITY NUMBER */
+.qty span {
+  min-width: 25px;
+  text-align: center;
+
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+/* EMPTY CART */
+.emptyCart {
+  max-width: 500px;
+  margin: 80px auto;
+  text-align: center;
+
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.emptyCart h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.emptyCart p {
+  color: #666;
+}
+
+/* EMPTY BUTTONS */
+.emptyButtons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.emptyButtons button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background: #ff9900;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.emptyButtons button:hover {
+  background: #e68a00;
+  transform: scale(1.05);
+}
+
+/* CART LAYOUT */
+.cartContainer {
+  display: flex;
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.cartItems {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CART CARD */
+.cartCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.cartCard:hover {
+  transform: translateY(-4px);
+}
+
+/* IMAGE */
+.cartCard img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* INFO */
+.cartInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cartInfo h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-weight: bold;
+  color: #b12704;
+}
+
+/* REMOVE BUTTON */
+.removeBtn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.removeBtn:hover {
+  background: #d9363e;
+}
+
+/* RIGHT SUMMARY */
+.cartSummary {
+  flex: 1;
+
+  background: white;
+  padding: 20px;
+
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  position: sticky;
+  top: 20px;
+}
+
+.cartSummary h2 {
+  margin-bottom: 15px;
+}
+
+.cartSummary p {
+  margin: 8px 0;
+}
+
+.cartSummary h3 {
+  margin-top: 10px;
+}
+
+/* CHECKOUT */
+.checkoutBtn {
+  width: 100%;
+  margin-top: 20px;
+
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: #ff9900;
+  color: white;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.checkoutBtn:hover {
+  background: #e68a00;
+  transform: scale(1.03);
+}
+
+/* RESPONSIVE */
+/* TABLET */
+@media (max-width: 768px) {
+
+  .cartPage {
+    padding: 20px;
+  }
+
+  .cartContainer {
+    flex-direction: column;
+  }
+
+  .cartSummary {
+    position: static;
+    width: 100%;
+  }
+
+  .cartCard {
+    padding: 12px;
+  }
+
+  .cartCard img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cartInfo h3 {
+    font-size: 14px;
+  }
+
+    .qty {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+  .cartPage {
+    padding: 15px;
+  }
+
+  .cartCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cartCard img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .cartInfo {
+    padding: 0;
+    width: 100%;
+  }
+
+  .cartInfo h3 {
+    font-size: 15px;
+  }
+
+  .removeBtn {
+    width: 100%;
+  }
+
+  .checkoutBtn {
+    font-size: 14px;
+  }
+
+  .emptyCart {
+    padding: 25px;
+    margin: 40px auto;
+  }
+
+  .emptyCart h2 {
+    font-size: 18px;
+  }
+    .qty {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .qty button {
+    width: 32px;
+    height: 32px;
+  }
+
+}

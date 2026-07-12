@@ -1,0 +1,17 @@
+Performance Optimization & Production Preparation.
+
+Topics Covered:
+    • React.memo
+    • useCallback with Redux
+    • useMemo with Redux
+    • Avoiding Unnecessary Re-renders
+    • Lazy Loading with Redux
+    • Code Splitting
+    • Environment Variables
+    • Production Build
+    • Deployment Basics
+
+Task:
+    • Optimize one large component.
+    • Implement Lazy loading for dashboard.
+    • Prepare production-ready folder structure.

@@ -1,0 +1,460 @@
+Tasks:
+    1• Create a new collection sales in the same school database.
+    2• Insert sample data with fields: item, category, quantity, price, date.
+    3• Use $match to show sales with quantity above 10.
+    4• Use $addFields to add a new field revenue = quantity * price.
+    5• Use $group to find total and average revenue for each category.
+    6• Sort results by total revenue (highest first).
+    7• Show top 3 categories using $limit.
+    8• Use $bucket to group items by price range.
+    9• Use $lookup to join with a new suppliers collection.
+    10• Use $project to display item names in uppercase using $toUpper.
+
+
+
+
+
+2. Insert sample data with fields: item, category, quantity, price, date.
+
+run:-
+
+db.sales.insertMany([
+  { item: "Notebook", category: "Stationery", quantity: 15, price: 5, date: new Date("2026-03-01") },
+  { item: "Pen", category: "Stationery", quantity: 25, price: 2, date: new Date("2026-03-02") },
+  { item: "Laptop", category: "Electronics", quantity: 5, price: 800, date: new Date("2026-03-01") },
+  { item: "Headphones", category: "Electronics", quantity: 12, price: 50, date: new Date("2026-03-03") },
+  { item: "Chair", category: "Furniture", quantity: 20, price: 30, date: new Date("2026-03-02") },
+  { item: "Desk", category: "Furniture", quantity: 8, price: 150, date: new Date("2026-03-01") },
+  { item: "Marker", category: "Stationery", quantity: 18, price: 3, date: new Date("2026-03-04") },
+  { item: "Tablet", category: "Electronics", quantity: 10, price: 300, date: new Date("2026-03-05") }
+])
+
+
+
+
+
+3• Use $match to show sales with quantity above 10.
+
+   run:- 
+       db.sales.aggregate([{$match:{quantity:$gt:10}}])
+       
+   output will be:-    
+       
+       [
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2629'),
+    item: 'Notebook',
+    category: 'Stationery',
+    quantity: 15,
+    price: 5,
+    date: ISODate('2026-03-01T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262a'),
+    item: 'Pen',
+    category: 'Stationery',
+    quantity: 25,
+    price: 2,
+    date: ISODate('2026-03-02T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262c'),
+    item: 'Headphones',
+    category: 'Electronics',
+    quantity: 12,
+    price: 50,
+    date: ISODate('2026-03-03T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262d'),
+    item: 'Chair',
+    category: 'Furniture',
+    quantity: 20,
+    price: 30,
+    date: ISODate('2026-03-02T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262f'),
+    item: 'Marker',
+    category: 'Stationery',
+    quantity: 18,
+    price: 3,
+    date: ISODate('2026-03-04T00:00:00.000Z')
+  }
+]
+
+
+
+ 4• Use $addFields to add a new field revenue = quantity * price.
+
+ run:-
+school> db.sales.aggregate([{$addFields:{revenue:{$multiply:['$quantity','$price']}}}])
+
+
+output will be:-
+
+[
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2629'),
+    item: 'Notebook',
+    category: 'Stationery',
+    quantity: 15,
+    price: 5,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 75
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262a'),
+    item: 'Pen',
+    category: 'Stationery',
+    quantity: 25,
+    price: 2,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    revenue: 50
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262b'),
+    item: 'Laptop',
+    category: 'Electronics',
+    quantity: 5,
+    price: 800,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 4000
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262c'),
+    item: 'Headphones',
+    category: 'Electronics',
+    quantity: 12,
+    price: 50,
+    date: ISODate('2026-03-03T00:00:00.000Z'),
+    revenue: 600
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262d'),
+    item: 'Chair',
+    category: 'Furniture',
+    quantity: 20,
+    price: 30,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    revenue: 600
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262e'),
+    item: 'Desk',
+    category: 'Furniture',
+    quantity: 8,
+    price: 150,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 1200
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262f'),
+    item: 'Marker',
+    category: 'Stationery',
+    quantity: 18,
+    price: 3,
+    date: ISODate('2026-03-04T00:00:00.000Z'),
+    revenue: 54
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2630'),
+    item: 'Tablet',
+    category: 'Electronics',
+    quantity: 10,
+    price: 300,
+    date: ISODate('2026-03-05T00:00:00.000Z'),
+    revenue: 3000
+  }
+]
+
+
+
+
+5• Use $group to find total and average revenue for each category.
+run:- 
+
+  school>  db.sales.aggregate([{$group:{_id:"$category",total:{$sum:"$revenue"},average:{$avg:"$revenue"}}}])
+
+
+oiutput will be:- 
+[
+  { _id: 'Furniture', total: 1800, average: 900 },
+  { _id: 'Stationery', total: 179, average: 59.666666666666664 },
+  { _id: 'Electronics', total: 7600, average: 2533.3333333333335 }
+]
+
+
+
+
+6• Sort results by total revenue (highest first).
+
+run:-
+school> db.sales.aggregate([{$group:{_id:'$category',total:{$sum:'$revenue'},average:{$avg:'$revenue'}}},{$sort:{total:-1}}])
+
+
+output will be:-
+[
+  { _id: 'Electronics', total: 7600, average: 2533.3333333333335 },
+  { _id: 'Furniture', total: 1800, average: 900 },
+  { _id: 'Stationery', total: 179, average: 59.666666666666664 }
+]
+
+
+
+
+ 7• Show top 2 categories using $limit.
+
+ run:-
+ school> db.sales.aggregate([{$group:{_id:'$category',total:{$sum:'$revenue'},average:{$avg:'$revenue'}}},{$sort:{total:-1}},{$limit:2}]) 
+
+ output will be:-
+ [
+  { _id: 'Electronics', total: 7600, average: 2533.3333333333335 },
+  { _id: 'Furniture', total: 1800, average: 900 }
+]      
+
+
+
+
+
+8• Use $bucket to group items by price range.
+   run:-
+     db.sales.aggregate([{$bucketAuto:{groupBy:'$price',buckets:3}}])
+
+  output will be:-
+       [
+        { _id: { min: 2, max: 30 }, count: 3 },
+        { _id: { min: 30, max: 300 }, count: 3 },
+        { _id: { min: 300, max: 800 }, count: 2 }
+      ]
+
+
+
+
+
+    9• Use $lookup to join with a new suppliers collection.
+
+run to create new collection suppliers
+
+    db.suppliers.insertMany([
+{ item: "Notebook", supplier: "ABC Traders" },
+{ item: "Pen", supplier: "ABC Traders" },
+{ item: "Laptop", supplier: "TechWorld" },
+{ item: "Headphones", supplier: "TechWorld" },
+{ item: "Chair", supplier: "HomeStyle" },
+{ item: "Desk", supplier: "HomeStyle" },
+{ item: "Marker", supplier: "ABC Traders" },
+{ item: "Tablet", supplier: "TechWorld" }
+])
+
+
+run:-
+school> db.sales.aggregate([{$lookup:{from:'suppliers',localField:'item',foreignField:'item',as:'supplier info'}}])
+
+output will be:-
+[
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2629'),
+    item: 'Notebook',
+    category: 'Stationery',
+    quantity: 15,
+    price: 5,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 75,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2631'),
+        item: 'Notebook',
+        supplier: 'ABC Traders'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262a'),
+    item: 'Pen',
+    category: 'Stationery',
+    quantity: 25,
+    price: 2,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    revenue: 50,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2632'),
+        item: 'Pen',
+        supplier: 'ABC Traders'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262b'),
+    item: 'Laptop',
+    category: 'Electronics',
+    quantity: 5,
+    price: 800,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 4000,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2633'),
+        item: 'Laptop',
+        supplier: 'TechWorld'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262c'),
+    item: 'Headphones',
+    category: 'Electronics',
+    quantity: 12,
+    price: 50,
+    date: ISODate('2026-03-03T00:00:00.000Z'),
+    revenue: 600,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2634'),
+        item: 'Headphones',
+        supplier: 'TechWorld'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262d'),
+    item: 'Chair',
+    category: 'Furniture',
+    quantity: 20,
+    price: 30,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    revenue: 600,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2635'),
+        item: 'Chair',
+        supplier: 'HomeStyle'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262e'),
+    item: 'Desk',
+    category: 'Furniture',
+    quantity: 8,
+    price: 150,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    revenue: 1200,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2636'),
+        item: 'Desk',
+        supplier: 'HomeStyle'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262f'),
+    item: 'Marker',
+    category: 'Stationery',
+    quantity: 18,
+    price: 3,
+    date: ISODate('2026-03-04T00:00:00.000Z'),
+    revenue: 54,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2637'),
+        item: 'Marker',
+        supplier: 'ABC Traders'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2630'),
+    item: 'Tablet',
+    category: 'Electronics',
+    quantity: 10,
+    price: 300,
+    date: ISODate('2026-03-05T00:00:00.000Z'),
+    revenue: 3000,
+    'supplier info': [
+      {
+        _id: ObjectId('69add82818b1c782d91e2638'),
+        item: 'Tablet',
+        supplier: 'TechWorld'
+      }
+    ]
+  }
+]
+
+
+    10• Use $project to display item names in uppercase using $toUpper.
+
+    run:-
+    school> db.sales.aggregate([{$project:{item:{$toUpper:'$item'},category:1,price:1,quantity:1,date:1}}])
+
+output will be:-
+
+[
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2629'),
+    category: 'Stationery',
+    quantity: 15,
+    price: 5,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    item: 'NOTEBOOK'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262a'),
+    category: 'Stationery',
+    quantity: 25,
+    price: 2,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    item: 'PEN'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262b'),
+    category: 'Electronics',
+    quantity: 5,
+    price: 800,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    item: 'LAPTOP'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262c'),
+    category: 'Electronics',
+    quantity: 12,
+    price: 50,
+    date: ISODate('2026-03-03T00:00:00.000Z'),
+    item: 'HEADPHONES'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262d'),
+    category: 'Furniture',
+    quantity: 20,
+    price: 30,
+    date: ISODate('2026-03-02T00:00:00.000Z'),
+    item: 'CHAIR'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262e'),
+    category: 'Furniture',
+    quantity: 8,
+    price: 150,
+    date: ISODate('2026-03-01T00:00:00.000Z'),
+    item: 'DESK'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e262f'),
+    category: 'Stationery',
+    quantity: 18,
+    price: 3,
+    date: ISODate('2026-03-04T00:00:00.000Z'),
+    item: 'MARKER'
+  },
+  {
+    _id: ObjectId('69ad61aa18b1c782d91e2630'),
+    category: 'Electronics',
+    quantity: 10,
+    price: 300,
+    date: ISODate('2026-03-05T00:00:00.000Z'),
+    item: 'TABLET'
+  }
+]

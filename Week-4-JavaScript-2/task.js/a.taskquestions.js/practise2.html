@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+</head>
+<body>
+    <!--                                  THROTTLE
+
+Q3.
+You want to log "Window resized" to the console, but only once every 2 seconds, no matter how many times the user resizes the browser window quickly.
+Use throttle to limit the frequency of the resize event handler.
+
+-->
+
+<div id="window"  style="width: auto; background-color: aqua;">
+    <p> Im window</p>
+</div>
+
+<script>
+    function resize(){
+        console.log("Window resized");   
+    }
+    function throttle(fnctn,delay){
+        let lastCall = 0;
+        return function(){
+            const now = new Date().getTime();
+            if (now-lastCall>=delay){
+                lastCall=now;
+                fnctn();
+                    
+                }
+            }
+        }
+        const throttled = throttle(resize,3000);
+        window.addEventListener("resize",throttled)
+
+</script>
+
+
+
+
+
+</body>
+</html>

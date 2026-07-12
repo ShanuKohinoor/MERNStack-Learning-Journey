@@ -1,0 +1,14 @@
+const express = require('express');
+const app = express();
+
+app.get('/read', (req, res) => {
+  res.send('Hello from /read route!');
+});
+
+app.listen(3000, () => {
+  console.log('Test server running at http://localhost:3000');
+});
+
+
+
+// This files old name was test.js . When i  use, fs.rename the file namechanged to sample.txt

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mall of Kohinoor - Interactions</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<div id="bg-change" class="bg-gray-100 transition-colors duration-300 min-h-screen">
+
+  <div class="max-w-2xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Mall of Kohinoor - FAQ</h1>
+
+    <div class="flex justify-center gap-4 mb-6">
+      <button onclick="changeBackground()"
+        class="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded">
+        Change Background
+      </button>
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <div onclick="answer"
+             class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+          What are the mall opening hours?
+        </div>
+        <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+          The mall is open from 10 AM to 10 PM every day.
+        </div>
+      </div>
+
+      <div>
+        <div onclick="answer"
+             class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+          Is parking available?
+        </div>
+        <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+          Yes, we have ample parking space for all visitors.
+        </div>
+      </div>
+
+      <div>
+        <div onclick="answer"
+             class="cursor-pointer bg-gray-200 p-4 rounded font-semibold text-gray-700">
+          Are pets allowed in the mall?
+        </div>
+        <div class="answer hidden bg-gray-100 text-gray-600 p-4 rounded">
+          Pets are not allowed inside the mall, except for service animals.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function answer(element) {
+      const answer = element.nextElementSibling;
+      answer.classList.toggle("hidden");
+    }
+
+    function changeBackground() {
+      const bgChange = document.getElementById("bg-change");
+
+    
+      bgChange.style.backgroundColor = "#4CAF50"; 
+    }
+  </script>
+
+</div>
+</body>
+</html>

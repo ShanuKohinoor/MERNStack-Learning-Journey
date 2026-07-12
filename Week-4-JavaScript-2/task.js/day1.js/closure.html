@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+
+
+    <!--CLOSURE:-
+                 Closure is a function which remember the variables from its lexical (outer)scope,even after outer finishes its running.
+    -->
+    <p  id="private">Shanu</p>
+
+
+
+    <script>
+    function privatename(){
+        let name = "Shanu";
+        return function(){
+            console.log("Hello",name);
+            
+        }
+    }
+const sayHello = privatename();
+sayHello();
+
+let name1 = document.getElementById("private")
+name1.textContent = "Hello shanu"
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+    • JavaScript Scope & Execution Context
+        ◦1. What is Execution Context? (Global & Functional)
+
+             a:- Execution context creates when JavaScript written.
+             *there are two types of execcution context. they are global and functional
+             
+             
+             CORRECT ANSWER:- 
+
+                 Execution Context is the environment in which JavaScript code runs.
+                 There are two types: Global Execution Context (GEC) and Function Execution Context (FEC).”
+
+
+
+        
+        ◦2. How JavaScript Executes Code in Two Phases
+             a:-when a javascript code writes, a global execution context will create and it has two phases. it will create. one is memory phase and other one is code execution phase.
+                *memory phase provide space for variables and functions.
+                *variables will be undefined for var and empty for let and const.
+                *function will be in function name with whole function
+                *when code execution starts, code execution phase will work. and variable will change to value and when function calls, another functional execution context will cfeate
+                *functional execution context also have memeory phase and code execution phase
+        
+             CORRECT ANSWER:- 
+
+        
+        
+     ◦3. Hoisting:-when  a varaiable writes, hoisting will happen..it comes to the top of the code...but wont initialize the variable.i dont know how to explain..but i know the concept.
+
+            CORRECT ANSWER:- 
+
+              *Hoisting is JavaScript’s default behavior of moving declarations (not initializations) to the top of their scope.”
+
+              *var is hoisted with undefined
+
+              *let and const are hoisted but not initialized (they stay in TDZ)
+
+
+
+
+       
+     4◦ Temporal Dead Zone (TDZ):- when a memory creation phase happen, varaiable come from down to up.it will stay in tdz. in case of var it change to undefined. in case of let and const it stay in tdz itself. once declared only it will assign the value
+       
+                   CORRECT ANSWER:- 
+
+                       TDZ is the time between the hoisting and actual declaration of let or const, where using them gives a ReferenceError.
+
+
+
+     
+     ◦5. Call Stack Behaviour
+                      when an code execution context created, it happens in a call stack. gec lies bottom of call stack.helps in line by line execution done. first execute synchronous,then,call functions, execute that,and remove from the call stack...atlast gec also remove from the call stack
+
+            CORRECT ANSWER:- 
+
+
+    • 6.JavaScript is a Single-Threaded Language
+
+               ans:-  because it happens in line by line execution...synchrounous functions work first. then asynchronous works with the help of event loop,call stack queue,microtask queue etc
+    
+            CORRECT ANSWER:- 
+
+    
+    • 7.Strict Mode - "use strict"
+                  ans:- eventhough there is mistakes, it runs the code. if we use strict mode.itwont work.
+        ◦ How to enable it
+                  ans:- with the help of strict mode inside a script or above a function or a code
+
+            CORRECT ANSWER:- 
+
+            "use strict";  // must be on top
+
+                     Strict mode disallows:
+
+                     Using undeclared variables
+
+                     Duplicates in function parameters
+
+                      this being undefined in functions (instead of global object)
+
+
+
+
+
+        ◦ Differences in behaviour (e.g., undeclared variables, silent errors):--Traverse
+
+            CORRECT ANSWER:- 
+  
+    • IIFE (Immediately Invoked Function Expression):-
+                   it works immediately when a code runs
+    
+        CORRECT ANSWER:- IIFE is a function that executes immediately after it’s defined.
+
+   
+    
+    
+    • Closures:-
+               varaiable and its lexical scope together known as closure...i dont know how to explain
+
+
+
+         CORRECT ANSWER:- 

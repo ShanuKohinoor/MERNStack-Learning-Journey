@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Create a basic HTML page with a button that fetches data from your Node server and displays it in a <div>.
+    -->
+     <div>
+      <!-- Button to click-->
+        <button onclick="fetchMessage()">Click</button>
+
+      <!--Fetched data display-->
+        <p id="result"></p>
+     </div>
+
+     <script>
+      // This area run when button clicks
+        function fetchMessage(){
+            fetch('http://localhost:4000')              // Use fetch API to make a GET request to your Node server at localhost:4000
+              .then(response=> response.text())    //parse the response as plain text
+              .then (data => {
+                     console.log('Fetched')
+                     document.getElementById("result").innerText = data;    // After getting the data, display it inside the <p> with id "result"
+              })
+               .catch(error => {
+                 console.log('Error:',error);
+                 document.getElementById("result").innerText = 'Error fetching data'       
+               });
+        }
+
+     </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

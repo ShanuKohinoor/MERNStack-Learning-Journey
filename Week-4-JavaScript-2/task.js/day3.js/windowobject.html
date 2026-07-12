@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //window.alert
+    console.log(this);  //this will take wnidow
+
+    //window.confirm:-confirm() shows a popup with OK and Cancel.
+
+        //Q.1
+             //let result = window.confirm("Do you like JavaScript?");  // will get popup with do you like javascript 'ok' and 'cancel' button
+
+
+        //Q.2
+
+           //let confirm = "Cancel";
+            //if (confirm("Delete item?")) {
+            //console.log("Item deleted");
+            //}                            // will show error..Because here confirm is a built-in function of js and here we giva confirm as variable name.
+
+
+            // If we use a different variable name
+                 //let userChoice = confirm("Delete item?");
+
+                   //if (userChoice) {
+                     ////console.log("Item deleted");    //Here it will get pop up with item deleted and ok and delete button. Because here variabale and function name is different.
+                        //}
+
+
+//window.localStorage:-it is a built-in web storage API in the browser that allows you to store key-value pairs in the browser.
+     //eg1:-
+//1. Store a string
+localStorage.setItem("language", "JavaScript");  // we store only by string..if it is not in a sting, use stringify and parseit
+
+//2. Retrieve it
+console.log(localStorage.getItem("language")); // JavaScript
+         
+         //eg2:-
+      localStorage.setItem("test","123");
+   console.log(localStorage.getItem("test"));           //123
+   console.log(typeof localStorage.getItem("test"));     //string
+
+
+
+   //eg3:-
+          localStorage.setItem("arr", JSON.stringify(["a", "b", "c"]));
+
+            let data = JSON.parse(localStorage.getItem("arr"));
+            console.log(data[1]); // "b"
+
+
+
+   //How to store non-string?
+     //eg1:-
+localStorage.setItem("count", 5);
+console.log(localStorage.getItem("count") + 1);   //51
+
+
+     //eg2:- by using JSON.stringify and JSON.parse
+        let user={
+            name: "Shanu",
+            age: 25             //here name and age is not in string. so we need to convert it into the string.
+        }
+
+              //store
+                localStorage.setItem("user",JSON.stringify(user));
+
+              //Retrieve
+              let retrieved = JSON.parse(localStorage.getItem("user"))
+                 console.log(retrieved.name);
+
+   //3.removeItem()
+        //eg1:-         
+localStorage.setItem("theme", "dark");
+localStorage.removeItem("theme");
+console.log(localStorage.getItem("dark"));   //null   (It stored as key-value pair.So removed)
+console.log(localStorage.getItem("theme"));  //null    (stored as key-value pair. So removed)
+
+      //eg2:-
+  localStorage.setItem("theme", "dark");
+localStorage.removeItem("dark");
+console.log(localStorage.getItem("dark"));    //null (there is no key named dark. So return null)
+console.log(localStorage.getItem("theme"));   //dark (key is theme and value is dark. so get the value of key. that is dark)
+  
+      //eg3:-
+      localStorage.setItem("user1", JSON.stringify({ name: "Shanu", age: 25 }));
+localStorage.setItem("loggedIn", "true");
+
+localStorage.removeItem("loggedIn");
+
+let user1= JSON.parse(localStorage.getItem("user1"));
+console.log(user1.age);    //25
+
+
+
+//4.localStorage.clear(); :-It removes all key-value pairs stored in localStorage.
+     //eg1:-
+
+
+        localStorage.setItem("theme", "dark");
+        localStorage.setItem("language", "JavaScript");
+
+         localStorage.clear();
+
+         console.log(localStorage.getItem("theme"));     //  null
+         console.log(localStorage.getItem("language"));  //  null
+
+     //eg2:-
+ 
+
+         localStorage.setItem("a", 1);
+         localStorage.setItem("b", 2);
+         localStorage.clear();
+         console.log(localStorage.length);    //  0  (clear() deletes all items in localStorage.)
+
+         //5.key(index):-It returns the name of the key stored at the given index in the localStorage.
+            //eg1:-
+
+            localStorage.clear();
+            localStorage.setItem("first", "1");
+            localStorage.setItem("second", "2");
+            console.log(localStorage.key(0));   // will get either first or second depends upon browsers internal ordering
+                                                 // "first"   or "second"
+              //eg2:-
+
+              localStorage.setItem("username", "Shanu");
+              localStorage.setItem("theme", "dark");
+              localStorage.key(0); // Might return "username"  (index order is not guaranteed)
+              localStorage.key(1); // Might return "theme" (index ordeer is not guaranteed)
+              localStorage.key(100); // null if there's no 101st key
+
+
+// localStorage: persists after closing browser/tab
+localStorage.setItem("username", "Alice");
+
+// sessionStorage: cleared when tab closes
+sessionStorage.setItem("tempData", "some value");
+
+
+
+//window.scrollTop
+
+     //eg1:-
+         //document.documentElement.scrollTop = 0;
+         //console.log(document.documentElement.scrollTop);
+</script>           
+    <button onclick="scrollDown()">Scroll Down</button>
+
+<script>
+  function scrollDown() {
+    window.scrollTo({ top: 800, behavior: 'smooth' });
+  }
+</script>
+
+
+              
+</body>
+</html>
+
+
+

@@ -1,0 +1,298 @@
+[
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Hellooo",
+    "time": "5:38 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Good afternoon",
+    "time": "5:38 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Hey, did you finish the science homework?",
+    "time": "5:41 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "Not yet… I got stuck on the last question.",
+    "time": "5:41 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Which one? The one about the water cycle?",
+    "time": "5:41 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "Yes! I don’t know what to write for evaporation.",
+    "time": "5:42 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Just explain how water turns into vapor when heated.",
+    "time": "5:42 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "OK.. Thanks",
+    "time": "5:43 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "Did you finish our history project? Our teacher said we need to submit it next Monday.",
+    "time": "5:44 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Next Monday! I thought we still had two weeks!",
+    "time": "5:45 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Thank you for reminding me",
+    "time": "5:45 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "you are welcome",
+    "time": "5:45 PM"
+  },
+  {
+    "kind": "private",
+    "room": "5475076_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 5475076,
+    "message": "helllo",
+    "time": "5:45 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Mohamed Shan Pullani",
+    "message": "Welcome...everyone to the group",
+    "time": "5:48 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Thank you...",
+    "time": "5:48 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Mohamed Shan Pullani",
+    "message": "Hey team! Did you see today’s announcement? Science exhibition is on Friday!  Only 3 days left....Are you ready?",
+    "time": "5:50 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Friday?? I thought we had one more week!",
+    "time": "5:51 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Fenza pullani",
+    "message": "Same...We really need to finalize our project today.",
+    "time": "5:53 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Filza Pullani",
+    "message": "Same....",
+    "time": "5:53 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "5475076",
+    "senderName": "Faraza Pullani",
+    "message": "Ok.we already decided 'Solar-Powered Water Purifier', right?",
+    "time": "5:58 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Yes, but we haven’t made the model yet",
+    "time": "5:58 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "5475076",
+    "senderName": "Faraza Pullani",
+    "message": "Lets finish as soon as possible",
+    "time": "5:59 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "Good evening",
+    "time": "7:25 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703420,
+    "toReceiverId": 7703467,
+    "message": "Good evening..How are you?",
+    "time": "7:25 PM"
+  },
+  {
+    "kind": "private",
+    "room": "7703420_7703467",
+    "fromSenderId": 7703467,
+    "toReceiverId": 7703420,
+    "message": "im good",
+    "time": "7:25 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Mohamed Shan Pullani",
+    "message": "Hellooo",
+    "time": "7:26 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Hiii......",
+    "time": "7:26 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Mohamed Shan Pullani",
+    "message": "Did you finish your work?",
+    "time": "7:27 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Nop",
+    "time": "7:27 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703467",
+    "senderName": "Mohamed Shan Pullani",
+    "message": "ok",
+    "time": "7:27 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "9944484",
+    "senderName": "Fenza Pullani ",
+    "message": "I will try to finish tomorrow itself",
+    "time": "8:05 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "9547452",
+    "senderName": "Filza Pullani",
+    "message": "we can arrange a meeting in the morning...",
+    "time": "8:06 PM"
+  },
+  {
+    "kind": "private",
+    "room": "2045247_7703420",
+    "fromSenderId": 7703420,
+    "toReceiverId": 2045247,
+    "message": "Helooo...Did you finish your homework?",
+    "time": "9:17 PM"
+  },
+  {
+    "kind": "private",
+    "room": "2045247_7703420",
+    "fromSenderId": 2045247,
+    "toReceiverId": 7703420,
+    "message": "Hi....Yep",
+    "time": "9:17 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "2045247",
+    "senderName": "Shareefa Mammed",
+    "message": "Hi everyone....",
+    "time": "9:18 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "7703420",
+    "senderName": "Shanu Shahanas",
+    "message": "Helooo.....Can we arrange a meeting tomorrow?",
+    "time": "9:19 PM"
+  },
+  {
+    "kind": "group",
+    "room": "1",
+    "fromStudentId": "2045247",
+    "senderName": "Shareefa Mammed",
+    "message": "yes",
+    "time": "9:19 PM"
+  }
+]

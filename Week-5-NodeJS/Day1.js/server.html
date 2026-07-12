@@ -1,0 +1,479 @@
+<!--//     
+
+??      What is a Server
+
+                                         SERVER
+
+//A server is a software or hardware system that accepts requests from clients and sends back responses, usually over the internet or a local network.
+    //it serves what we request
+
+
+// A server is a computer,device or a program that shares data, network, and files etc to the other computer.
+// It is a computer software provide service to other computers in local area network(LAN) or wide area network(WAN)
+// It provides functionality for other networks called clients.
+// Server computer is used for:-
+//               * To share files with clients with required passwords.
+//               * To manage network resources. 
+//               * To share database.
+//               * To share emails. 
+//               * To share networ devices. 
+//               * To connect other external devices such as printers etc.
+//               * It also store,retrieve and send files to other computers.
+
+
+
+// A server is just a computer that responds to requests from other devices (called clients), usually over a network (like the internet or local network).
+
+// When you visit a website like google.com, your browser is a client, and Google's computer (server) sends the web page back to you.
+
+
+
+
+
+
+
+                             //Types of server
+
+
+//1.organization setup:- can access office only
+       //to store office details..They have separate server room
+       //cant access public
+       //have common server:-All system of employees connected to this server
+
+
+
+
+
+//2. Internet server:- Can publically access
+   //Eg:- Facebook,youtube
+
+          //  a.Web server:- to access website
+          //  b.Mail server:- related to mail
+          //  c.File server:-managing our sharing files etc
+
+
+
+
+//Basically server is a computer
+//We can use our normal computer as server by increasing its storage capacity -->
+
+
+                         REQUEST
+                      ------------> 
+      <!--  client ------------------ Server-->
+                      <------------
+                        RESPONSE
+
+
+<!--
+//              ? How Can a Computer Become a Server(Beginner level)
+
+
+//               * It must be 24/7 active 
+                 * It should have server program to check the request.
+                 * This server program should be in backend language.
+
+
+
+
+
+                               Localhost vs Remote Server
+
+Local host :- It is for development and testing.
+              * Runs in our own computer. 
+              * We can run our project on our computer before go for live.
+              * We can only access.
+              * No need of internet.
+              * It is safe.
+              * We can test code, fix bugs, and make changes without affecting real users.
+              * Eg tools on Local host:- Node.js
+
+
+              
+Remote Server :- It is for deployement(live/production) 
+                  * Our project,app etc can be hosted on a remote machine and anyone can access that.
+                  * It can be far away.
+                  * Need security measures to prevent hacking.
+                  * Need internet.
+                  * Anyone can access.
+                  * Usually upload project using GitHub, Netlify etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  What is a Port  (Default & Custom Ports)
+
+ Port is a number used by our computer to talk with specific app.
+ Our computer has only one IP address and it runs many apps. So with the help of port, incoming request handled to the specific app.
+ We have many servers in a single computer. To identify that, use port. 
+ Different port, listen different server.
+ Port is a virtual door.
+
+
+  const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.end("Hello, this is my server!");
+});
+
+server.listen(3000, () => {
+  console.log("Server is running on http://localhost:3000");
+});
+
+
+
+80	                   HTTP               	Websites without encryption
+443	                   HTTPS	              Secure websites (with SSL/TLS encryption)
+3000	                 Custom	              Common port for Node.js development servers
+8080	                 Custom	              Alternative to port 80 (often used for testing)
+
+ 
+
+
+  * Default port:-
+              - It is a predefined port number assigned to a common service. It is automatic.
+              - Eg:- HTTP websites goes to port 80 automatically.
+              -      HTTPS websites goes to port 443 automatically. 
+              - We can’t see the port in the URL because browsers already know the default.
+              - Used by global standards.
+              - It is fixed. Cannot be changed.
+
+
+  * Custom port:-
+             - It is a user-defined port number that we choose for our application.
+             - Create when ;:-
+                    * We are running our own server.
+                    * The default port is already in use.
+                    * We want to separate different services.
+            - Must be written in url.
+            - Used for personal projects, testing, or running multiple apps.
+            - Can freely chose.
+            - Eg:- server.listen(5000, () => {
+                     console.log("Server running on port 5000");
+               });
+                                          //  Here, 5000 is a custom port.
+
+                                          //  we must type it in the browser: http://localhost:5000
+
+
+
+
+
+
+                     What Kind of Requests Does a Server Receive?
+
+    Answer:- HTTP request
+          when we open a website and click a button, browser send a request to server. That is HTTP request.
+
+
+
+ ◦ HTTP Request Basics  
+
+       * HTTP(Hypertext Transfer Protocol) requests is like sending a message to server for asking something
+       * It is the way browser and server communicate on the internet.
+       * Request is a client(app or chrome) asks server to:-
+             - Get data
+             - Send data
+             - Delete or update something
+
+             Eg:- If we take browser and search https://www.instagram.com, browser send HTTP request to instagram server.
+                  * instagram responds with HTML code,CSS,Javascript ,images ,posts etc...
+
+
+
+       * Every HTTP request includes:-
+                1. A method (what kind of action?)
+
+                2. A URL (which resource?)
+
+                3. Some headers (extra info)
+
+                4. An optional body (actual data, only for some methods)
+
+
+
+
+
+
+ ◦ Request Types (HTTP Methods)  
+
+      1. GET :- To get data from the server.
+                  * No change in data or body
+
+                  Eg:- Get a blog post from 
+                        GET /blog/10 -> Get post with ID 10.
+
+
+      2. POST :- To send data to the server.
+                 * Creates new data.
+
+                  Eg:- POST/ sign up 
+                        { "email": "test@example.com", "password": "1234" }
+
+
+      3. PUT :- To upload or replace something completelety.
+              * Replace old data.
+
+                Eg:- PUT/user/5
+                      { "name": "Shanu", "email": "shanu@example.com" }
+
+                       *Here replace user 5's entire record.
+
+      4. PATCH :- To partially  update existing data.
+              * Change data.
+              * Update specific field.
+
+               Eg:- PATCH/user/5
+                    { "email": "newemail@example.com" }
+
+      5. DELETE :- To delete resource of server.
+              * Removes data
+
+              Eg:- DELETE /comment/15 -> Deletes comment with ID 15.
+
+      6. HEAD :- To check if a resource exists, like GET but without the response body.
+            * To check for performance, file  existance etc.
+            
+              Eg:- HEAD /product/10 -> Server checks if product exists
+                    * but sends without content.
+
+      7. OPTIONS:- To ask the server what methods are allowed for a specific resource.
+
+              Eg:- OPTIONS/api/user
+              server might responds:- 
+                     Allow: GET,POST,PUT
+
+
+           
+
+
+                                  ◦ Structure of the Request
+                                        - URL or Endpoint  
+                                        - Headers  
+                                        - Body  
+
+
+        Answer:- When a browser send a request to server, it send complete HTTP request, which includes URL or Endpoint, headers and body.
+
+
+
+ 1) URL(Uniform Resource Locator) / Endpoint :- 
+            which tells the server what resource the browser wants.
+
+
+
+               Eg:- https://www.amazon.com/s?k=laptop&sort=price-asc-rank
+
+
+               https://     :- Protocol(secure connection) using HTTPS
+
+               www.amazon.com   :- Domain(The website) : Here we request(Amazon site)
+
+               s       :-  Endpoint(search page) : Here it is Amazon's search page
+
+               ?k=laptop   :- Query parameter(parameters for search and sorting) : k stands for keyword of laptop
+
+
+               &sort=price-asc-rank  :- Query parameter :  sort results by price
+                                                             * Low to  high
+
+
+
+
+        *  This URL indicates "Search for laptops on Amazon, and show the results sorted by lowest price first."
+
+                                       
+                
+        
+
+
+                    How to create a URL?
+-->
+
+
+            <script>
+               let base = "https://www.amazon.com/s";
+
+               let searchKeyword = "laptop";
+
+                let sortOption = "price-asc-rank";
+
+                let finalURL = `${base}?k=${searchKeyword}&sort=${sortOption}`
+
+               console.log(finalURL)
+             </script>
+
+
+
+<!--
+2) HEADER:- 
+            HTTP HEADERS are key-value pairs send with the request to give extra information to the server. 
+            * Header is used to give extra or meta data.
+         
+            * URL tells what you want to the server. whereas,
+          * Header give  extra information  to server. Informations like:-
+                 - who you are
+                 - who is sending the request(Browser/device)
+                 - what kind of response is expected.(HTML,JSON  etc)
+                 - what session or cart you are carrying.
+
+
+
+              Eg:-
+              URL:-  https://www.amazon.com/s?k=laptop
+
+              HEADER :-  
+                     * GET /s?k=laptop HTTP/1.1     :- This means, show me search result for laptop
+                     * Host:- www.amazon.com        :- This means, I'm asking Amazon's server
+                     * Useragent :- Chrome          :- This means, I'm using Chrome browser
+                     * Accept :- text/HTML          :- This means, I want the page in HTML format
+
+
+
+
+3) BODY  :- 
+          It is the part of an HTTP request which contains actual data that the client wants to send to the server.
+
+          * It mostly used with the method like POST,PUT, PATCH
+          * It wont GET, DELETE, HEAD
+
+
+          * Needs header
+               Eg:-
+
+                HEADER:- 
+
+                    POST /signup HTTP/1.1
+                    Host: www.amazon.com
+                    Content-Type: application/json
+
+                  
+                BODY:-
+
+                    {
+                       "name": "Shanu",
+                       "email": "shanu@example.com",
+                       "password": "123456"
+                     }
+
+
+
+
+
+
+                  • What Does the Server Send Back? (HTTP Response)
+                           ◦ HTTP Response Basics  
+                           ◦ Parts of an HTTP Response  
+                               - Status Code (e.g., 200 OK, 404 Not Found)  
+                               - Headers (e.g., Content-Type)  
+                               - Body (HTML, JSON, text, etc.)  
+
+
+
+
+
+  • What Does the Server Send Back? (HTTP Response)
+
+   Answer:- HTTP Response is the response send back from the server after it recieves the request.
+             * it will inform whether the request is success or failure,
+             * what type of data is sending and
+             * actual data(HTML,image,JSON etc)
+   
+   ◦ HTTP Response Basics  :- when thhe server recieves request, it send back the response. it has 3 parts:-
+        * Parts of an HTTP Response :-
+        
+        
+
+ 1) Status Code (e.g., 200 OK, 404 Not Found)
+             
+                * This is a 3 digit number which tells whether the request is succeed or not.
+
+
+| Code                        | Meaning             | Example                                |
+| --------------------------- | ------------------  | -------------------------------------- |
+| `200 OK`                    | ✅ Success          | Page loaded successfully               |
+| `201 Created`               | ✅ New data created | After successful sign-up               |
+| `400 Bad Request`           | ❌ Wrong request    | Missing or invalid data                |
+| `401 Unauthorized`          | ❌ Not logged in    | Trying to access account without login |
+| `403 Forbidden`             | ❌ No permission    | You’re not allowed                     |
+| `404 Not Found`             | ❌ URL not found    | Product doesn’t exist                  |
+| `500 Internal Server Error` | ❌ Server problem   | Bug in server code                     |
+
+
+
+
+
+ 2) Headers (e.g., Content-Type)  :- It is like request header,which give extra information about the response
+
+      Eg:-  
+                 HTTP/1.1 200 OK                          :- This means, Response was successful         
+                 Content-Type: text/html                  :- This means, Response is an HTML page        
+                 Set-Cookie: session-id=abc123            :- This means, Save this session ID in browser 
+
+
+
+
+
+
+
+
+3) Body (HTML, JSON, text, etc.)  :-The body of an HTTP response contains the actual data or content that the client (your browser, JavaScript, or app) asked for.
+
+It can be: A web page, A product list, A success message, An image, Or any other kind of file or content
+
+
+
+                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

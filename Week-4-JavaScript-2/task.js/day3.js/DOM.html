@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+                         
+                         
+<!--DOM(DOCUMENT OBJECT MODEL):-It is tree like structure.
+             //The DOM (Document Object Model) is a representation of the HTML structure, and it's accessible via window.document.
+            //Browser converts HTML file into this structure. So, Javascript can interact with it.
+            //Use document object to change the DOM.
+            console.log(window.document === document); // true
+
+
+                        <html>
+                            <head>
+                             <title>My Page</title>
+                            </head>
+                                <body>
+                                 <h1 id="title">Hello</h1>
+                                 <p class="info">Welcome</p>
+                                </body>
+                        </html>
+
+
+
+                    //DOM Tree:-
+
+                           //document
+                              //└── html
+                              //  ├── head
+                                 // └── title
+                                    //└── body
+                                      //├── h1 (id="title")
+                                        //└── p (class="info")
+
+
+    //with the help of Javascript,we can access HTML.
+    //Javascript uses DOM to access the HTML elements.
+    // Once we access we can:-
+          //Change / remove / create HTML elements & attributes
+          //We can change the CSS properties.
+          //React / create HTML events
+
+//Accesing Document object:-
+          // 1. getElementById()
+          // 2. getElementsByName()
+          // 3. getElementsByTagName()
+          // 4. getElementsByclassName()
+          // 5. Query selectors
+  
+
+
+//getElementsByClassName("name") :- selects all elements with that class (returns a collection)
+//querySelector(".name") :- selects only the first element that matches the class (returns one element)
+
+
+
+
+
+            //Query selector
+
+               //1.
+                   document.querySelector
+               // 2.
+                 document.querySelectorAll   //Selects all matching elements.
+
+
+
+
+
+
+
+
+
+
+   DOM API's
+          1. select Elements(by getElementById)-->
+               <div id="box">Hello</div>
+
+               <script>
+                   const box = document.getElementById('box');
+                   console.log(box);
+               </script>
+
+         <!--2. change content (by element.textContent)-->
+               <div id="box1">Old Text</div>
+
+               <script>
+                const boxx = document.getElementById('box1');
+                boxx.textContent = "New Text";               
+               </script>
+
+
+         <!--3. change style (by element.stle.color)-->
+
+              <p id="text" style="color:blue">Color me!</p>
+
+              <script>
+                const p = document.getElementById('text');
+                p.style.color = "red";
+              </script>
+        <!-- 4. create element(by document.creatElement)-->
+
+             <script>
+                const newDiv = document.createElement("div");  //should be a tag(here we create a div)
+                newDiv.textContent = "I'm new here";
+                document.body.appendChild(newDiv);   //document.body.appendchild means
+                                                        //document is the global object representing the entire webpage.
+
+                                                       //body is the <body> element of the page (where most visible content lives)
+
+                                                       //appendChild() is a DOM API method that adds a node (element) as the last child inside another element.
+
+                              //Append child:- adds a node to the end of the list of children of a specified parent node.
+                                   //Syntax:-
+                                       parentNode.appendChild(newChildNode);
+
+       
+
+ 
+
+             </script>
+
+        <!-- 5. insert element(parent.appendChild(newDiv))-->
+             <div id="container">Container</div>
+
+             <script>
+                const parent = document.getElementById('container');
+                const child = document.createElement("p")  // here we are creating a paragraph. so use p to create <p>
+                child.textContent = "I'm a child";
+                parent.appendChild(child);     // Output :- Im a child
+             </script>
+        <!-- 6. Remove element( by elelment.remove)-->
+
+            <button onclick="removeMe(this)">Remove me</button>
+                    <!--Why do we use this in onclick="removeMe(this)"?
+                               When you write onclick="removeMe(this)", the this refers to the element that triggered the event — in this case, the button that was clicked.So, this is the button element itself. Passing this means you give the function a direct reference to the element to remove.-->
+
+            <script>
+               function removeMe(button){
+                button.remove();
+               }
+            </script>
+        <!-- 7. Attach event(by addEventListener)-->
+
+            <button id="btn">Click Me</button>
+
+            <script>
+                const btn1 = document.getElementById('btn');
+                btn1.addEventListener("click",()=>
+                 alert("Button clicked"));        // we can use 'window.alert' instead of 'alert' alone.
+            </script>
+
+</body>
+</html>

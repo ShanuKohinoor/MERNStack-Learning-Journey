@@ -1,0 +1,19 @@
+Build advanced scalable applications using Redux.
+
+Topics Covered:
+    • Normalizing State
+    • Storing Nested Data
+    • Updating Complex State
+    • Global Authentication Flow
+    • Token Handling Strategy
+    • Protected Routes with Redux
+    • Reusable Selectors
+    • Memoization with Reselect (Introduction)
+
+Task:
+    • Implement full authentication flow:
+        ◦ Login
+        ◦ Store token
+        ◦ Protect Dashboard
+        ◦ Logout
+    • Persist state (optional – localStorage)

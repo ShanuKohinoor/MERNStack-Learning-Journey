@@ -1,0 +1,153 @@
+Tasks:
+    1. Use the same school database.
+    2. Data Modeling:
+          2a. Create two collections, students and courses.
+          2b. Show one example of embedding (store course details inside a student).
+          2c. Show one example of referencing (store only courseId in the student).
+    3. Indexing:
+          3a. Create a single-field index on course.
+          3b. Create a compound index on { course: 1, totalMarks: -1 }.
+          3c. Create a text index on subjects and search for “Math”.
+    4. Performance:
+           • Run one query with and without index; compare the result using explain("executionStats").
+
+
+
+
+
+
+1. Use the same school database.
+2. Data Modeling:
+    2a. Create two collections, students and courses.
+
+        ans:- 
+          students collection:-
+              
+
+          run:- db.createCollection('students')
+
+         courses collection:- 
+         run:- db.createCollection('courses')
+
+    2b. Show one example of embedding (store course details inside a student).
+          run:-
+            // add document inside collection
+             db.students.insertOne({name:'Rahul',age:20,totalMarks:450,subjects:['Math','Physics','Programming']})                                 
+          
+          // embedd course details inside document.
+          school> db.students.updateOne({name:'Rahul'},{$set:{course:{courseName:'Computer Science',duration:'3 years',fee:3000}}})
+
+    2c. Show one example of referencing (store only courseId in the student).
+               // first create one student document
+
+           run:- school> db.students.insertOne({name:'Anu',age:19,totalMarks:490,subjects:['Maths','Chemistry','Biology']})
+
+           // insert a course into courses document.
+           run:- school> db.courses.insertOne({courseName:'Science',fees:3500,duration:'2.5 years'})
+
+
+           // To get objectId for referencing course in student document,find out objectId from course document
+
+           run:- db.courses.find()
+             output:  
+                  {
+                  _id: ObjectId('69b266d06f9d13f9ae1e2623'),
+                  courseName: 'Science',
+                  fees: 3500,
+                  duration: '2.5 years'
+                  }
+
+          // for referencing,updat student document with this objectId
+
+          run:- 
+            school> db.students.updateOne({name:'Anu'},{$set:{courseId: ObjectId('69b266d06f9d13f9ae1e2623')}})
+          
+          output:-  
+            when run:- 
+               school> db.students.find({name:'Anu'})
+                will get:-
+
+                  [
+                  {
+                  _id: ObjectId('69b2660a6f9d13f9ae1e2622'),
+                  name: 'Anu',
+                  age: 19,
+                  totalMarks: 490,
+                  subjects: [ 'Maths', 'Chemistry', 'Biology' ],
+                  courseId: ObjectId('69b266d06f9d13f9ae1e2623')
+                  }
+                  ]
+
+    3. Indexing:
+       3a. Create a single-field index on course.
+          run:-
+          school> db.courses.createIndex({courseName:1})
+
+          check the index id by running:-
+            school> db.courses.getIndexes()
+
+          output:-
+           [
+            { v: 2, key: { _id: 1 }, name: '_id_' },
+            { v: 2, key: { courseName: 1 }, name: 'courseName_1' }
+           ]
+
+      3b. Create a compound index on { course: 1, totalMarks: -1 }.
+      
+          run:-
+          school> db.students.createIndex({course:1,totalMarks:-1})
+
+          output:- 
+          [
+            { v: 2, key: { _id: 1 }, name: '_id_' },
+            {
+            v: 2,
+            key: { course: 1, totalMarks: -1 },
+            name: 'course_1_totalMarks_-1'
+            }
+         ]                                      // when run db.students.getIndexes()
+
+      3c. Create a text index on subjects and search for “Math”.
+            create index by run:-
+                 school> db.students.createIndex({subjects:'text'})
+
+            search index by run:- 
+                 db.students.find({$text:{$search:'Maths'}})
+                
+
+
+           output:-
+           school> db.students.find({$text:{$search:'Maths'}})
+            [
+            {
+            _id: ObjectId('69b261896f9d13f9ae1e2621'),
+            name: 'Rahul',
+            age: 20,
+            subjects: [ 'Math', 'Physics', 'Programming' ],
+            course: { courseName: 'Computer Science', duration: '3 years', fee: 3000 },
+            totalMarks: 450
+            },
+            {
+            _id: ObjectId('69b2660a6f9d13f9ae1e2622'),
+            name: 'Anu',
+            age: 19,
+            totalMarks: 490,
+            subjects: [ 'Maths', 'Chemistry', 'Biology' ],
+            courseId: ObjectId('69b266d06f9d13f9ae1e2623')
+            }
+            ]
+    4. Performance:
+           • Run one query with and without index; compare the result using explain("executionStats").
+
+          a. run query with index:
+           school> db.students.find({course:'computer science'}).explain('executionStats')
+
+           output:-   
+                   stage: 'IXSCAN',
+
+          b. run query without index:
+
+           school> db.students.find({age:19}).explain('executionStats')
+
+          output:-
+                stage: 'COLLSCAN',

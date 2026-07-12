@@ -1,0 +1,15 @@
+.valueDisplay {
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 30px;
+
+}
+
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+

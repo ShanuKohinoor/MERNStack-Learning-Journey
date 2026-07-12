@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Personal contact</title>
+</head>
+<body>
+
+    <div class="flex justify-center items-center min-h-screen bg-green-900">
+
+          <form id="form" class="bg-green-100 w-96 text-center h-48 overflow-hidden">
+  
+   
+          <h1 class="text-3xl text-center text-green-900">Contact Us</h1>
+          <br>
+            <div>
+             <label for="firstName" class="text-green-900"> First Name </label>
+             <input type="text" placeholder="Enter Your First Name" id="firstName" class="border rounded-full bg-gray-50 w-80 h-10"><br>
+             <span id="myname"  class="hidden">invalid name</span>
+             <br>
+             <label for="secondName" class="text-green-900"> Second Name </label>
+             <input type="text" placeholder="Enter Your Second Name" id="secondName" class="border rounded-full bg-gray-50 w-80 h-10"><br>
+             <span id="myname2"  class="hidden">invalid name</span>
+             <br>
+             <label for="Email" class="text-green-900">Email id</label>
+             <input type="email" placeholder="ex@gmail.com" id="Email" class="border rounded-full bg-gray-100 w-90 h-10">
+             <span id="myemail"  class="hidden">invalid email</span>
+             <br>
+             <label for="phone" class="text-green-900">Contact Number</label>
+             <input type="text" placeholder="Valid Mobile Number to Contact You" id="phone" class="border rounded-full bg-gray-50  w-80 h-10">
+             <br>
+             <label for="message"class="text-green-900">Message</label>
+             <textarea name="message" id="message" placeholder="Enter a message" class="border rounded-md bg-gray-50 w-90 h-26"></textarea>
+             <span id="mymessage"  class="hidden">invalid message</span>
+             <div id ="live" class="mt-2 text-green-900 text-sm text-left">Live Preview:</div>
+             <br>
+             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center ">Submit</button>
+             <p id="sendDelay" class="text-green-300"></p>
+            </div>
+        </form>
+       
+    </div>
+    <script>
+       const form=document.getElementById('form');
+       const firstName=document.getElementById('firstName');
+       const secondName=document.getElementById('secondName');
+       const Email=document.getElementById('Email');
+       const phone=document.getElementById('phone');
+       const myname=document.getElementById('myname');
+       const myname2=document.getElementById('myname2');
+       const myemail=document.getElementById('myemail');
+       const message=document.getElementById('message')
+       const live=document.getElementById('live')
+
+
+        form.addEventListener('submit',(e)=>{
+             e.preventDefault();  
+
+             let isValid=true;
+
+        if(firstName.value.trim().length<3){
+            myname.classList.remove('hidden');
+            myname.textContent="invalid name";
+            firstName.classList.add('border-red-800')
+
+        }
+        else{
+            myname.classList.add('hidden');
+            myname.textContent="valid name";
+            firstName.classList.remove('border-red-800')
+            firstName.classList.add('border-green-800')
+        
+        }
+            if(secondName.value.trim().length<3){
+            myname2.classList.remove('hidden');
+            myname2.textContent="invalid name";
+            secondName.classList.add('border-red-800')
+
+        }
+        else{
+            myname2.classList.add('hidden');
+            myname2.textContent="valid name";
+            secondName.classList.remove('border-red-800')
+            secondName.classList.add('border-green-800')
+        
+        }
+    
+        if (Email.value.trim() === '' || !Email.value.includes('@')){
+            myemail.classList.remove('hidden');
+            Email.classList.remove('bg-gray-100');
+            Email.classList.add('border-red-800');
+        }
+        else{
+            myemail.classList.add('hidden');
+            myemail.textContent="valid email";
+            Email.classList.add('border-green-800')
+        }
+        if (isValid){
+            const status=document.getElementById('sendDelay');
+            status.textContent="Sending...";
+            setTimeout(()=>{
+            status.textContent="Submitted Successfully"
+            alert("Submitted Successfully")
+
+        },2000);
+        }
+        
+    });
+
+    message.addEventListener('input', () => {
+    live.textContent = message.value;
+    });
+      
+    </script>
+    
+</body>
+</html>

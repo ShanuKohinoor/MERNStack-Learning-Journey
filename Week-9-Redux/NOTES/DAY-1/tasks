@@ -1,0 +1,22 @@
+    • What is State Management?
+    • Local State vs Global State
+    • Problems with Prop Drilling
+    • Introduction to Redux
+    • Flux Architecture
+    • Core Concepts:
+        ◦ Store
+        ◦ Action
+        ◦ Reducer
+        ◦ Dispatch
+    • Redux Data Flow
+    • Installing Redux Toolkit
+    • Setting up Redux in React Project
+    • Provider
+
+Task:
+    • Setup Redux in an existing React project.
+    • Create a simple Counter using:
+        ◦ createSlice
+        ◦ configureStore
+        ◦ useSelector
+        ◦ useDispatch

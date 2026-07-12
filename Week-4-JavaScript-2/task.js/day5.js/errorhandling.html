@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--//Error handling
+     //Error handling is the process of understanding and managing errors in a program, so it doesn't crash.
+     // It is done using tools like try...catch, finally, throw, and .catch() for Promises.
+
+ -->
+
+
+
+<script>
+
+  //Eg: 
+  // Normal code without error:-
+
+        let name = "Shanu";
+        console.log("Hello" + name) //Output:- Hello Shanu
+
+  // Normal code  with error:-
+
+        //let name1 = "Shanu";
+        //console.log("Hello" + fullname) //Output:- Reference error. Because here fullname is not defined.
+ 
+
+  // To overcome(handle) this error,use 'try...catch, finally, throw, and .catch() for Promises'.
+
+    //Throw:-
+        // Use throw when we want to create our own error manually.
+
+        //It stops the code and sends the error message you provide.
+
+        //Then you can catch that error in a catch block.
+        // finally runs at the end always.
+
+
+
+
+  //Same code with 'try',catch,finally:- -->
+        let name1 = "Shanu";
+        console.log("Hello" + fullname) //Output:- Reference error. Because here fullname is not defined.
+
+       try{
+        let name1 = "Shanu";
+          if (typeof fullname === "undefined") {  //check type of full name
+                                                //if (typeof fullname === "undefined") 
+
+             throw new Error("fullname is not defined — custom error!");
+                               //If it is not undefined, throw a new error with a custom message.
+
+          }                      
+        console.log("Hello" + fullname) //here is the error
+       } catch(error){
+        console.log("Caught Error:", error.message)  //Output:- Caught Error: fullname is not defined
+       } finally {
+        console.log("This code always run with error or without error")
+       }     //Output:- This code always run with error or without error
+
+
+                                 //The thrown error is caught in the catch block and displayed.
+                                 //finally runs at the end always.
+
+       
+
+</script>
+
+
+
+
+
+</body>
+</html>

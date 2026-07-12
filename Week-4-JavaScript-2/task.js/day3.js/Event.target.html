@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--Event.target
+            when an event occurs,browser creates an event object.
+            event.target is a property of this event object-->
+
+
+
+  <!--eg1:--->
+        
+              <div id="parent">
+           <button id="child">Click me</button>
+          </div>
+
+         <script>
+         document.getElementById('parent').addEventListener('click', function(event) {
+         console.log(event.target);  
+         });
+         </script>
+
+
+
+<!--eg2:--->
+
+            <button onclick="removeMe(event)">Remove me</button>
+
+            <script>
+            function removeMe(event) {
+             event.target.remove(); // event.target is the clicked button
+             }
+            </script>
+
+            
+
+            <!--tricky questions
+
+            
+            1. Question:
+               If you add an event listener to a parent element and inside it is a child element, will event.target ever be equal to the parent element when you click the child?
+
+                   Answer:
+                     No.Because, When we click the child, event.target is the child element (the actual clicked element), not the parent. 
+                     The parent can be accessed through event.currentTarget only.
+
+            2.Question:
+               If you click on a <span> inside a <button>, and the click event is attached to the <button>, what is event.target?
+
+                    Answer:
+                      event.target is the <span> — because that is the deepest element that was actually clicked.
+                      Even though the listener is on the <button>, event.target is always the real clicked element.
+
+
+            3.Question:
+              Can event.target ever be equal to event.currentTarget?
+
+                    Answer:
+                     Yes — if you click directly on the element that has the event listener, then event.target === event.currentTarget.-->
+
+<!--event.currentTarget:-The element that has event listener-->
+
+               <div id="outer" style="width: 200px; height: 50px; background-color: red; display: flex; justify-content: center;">
+                    <button id="inner" style="height: 50px;  width: 50px;">Click Me</button>
+               </div>
+
+
+            <script>
+                const outer = document.getElementById('outer')
+                
+                outer.addEventListener('click', function(event) {
+                console.log("target:", event.target.id);               //target: inner
+                console.log("currentTarget:", event.currentTarget.id); //currentTarget: outer
+                });
+
+                         // If click the empty space (not the button), then output will be:-
+                                                 //target: outer
+                                                 //currentTarget: outer
+
+
+
+            </script>
+   
+<!--TRICKY QUESTIONS-->
+ 
+           <!--Question 1.❓What will be logged when you click the <button>?-->
+
+             <div id="container" style="width: 500px; height: 100px; background-color: blueviolet;">
+                    <button id="btn">Click</button>
+             </div>
+
+             <script>
+                  const container= document.getElementById('container')
+                  container.addEventListener(('click'),(event)=>{
+                     console.log(event.target.id);
+                  })               // Output:- btn
+
+             </script>
+    
+
+      <!--Question 2❓Same HTML, but now you click the  <div> outside the button. What is event.target.id?
+                            //Output:- container           -->
+
+
+
+      <!--Question 3 ❓What happens when you click the "Delete" button?-->
+
+                   <div id="panel">
+                        <button>Save</button>
+                        <button>Delete</button>
+                   </div>
+
+                   <script>
+                      document.getElementById("panel").addEventListener("click", function(event) {
+                        console.log(event.target.textContent);   //Output:- Delete
+                      });
+                  </script>        
+
+
+
+      <!--Question 4 ❓If you click on the word "Buy", what is the output?
+-->
+
+                     <div id="card">
+                        <button><span>Buy</span></button>
+                     </div>
+
+                    <script>
+                       document.getElementById("card").addEventListener("click", function(event) {
+                       console.log(event.target.tagName);   //span
+                                                            //When you click the word “Buy”, we are actually clicking the <span>.So event.target is the <span>.
+
+
+                       });
+                    </script>
+
+<!--Quesion 5.t-->
+                    <div id="outer1" style="width: 300px; height: 100px; background-color: blue; display: flex; justify-content: center; ">
+                         <button id="btn">
+                              <span id="label">Click Here</span>
+                         </button>
+                    </div>
+
+                 <script>
+                      document.getElementById("outer1").addEventListener("click", function(event) {
+                        console.log("event.target.tagName:", event.target.tagName);  //event.target.tagName: BUTTON
+
+                        console.log("event.currentTarget.id:", event.currentTarget.id); //event.currentTarget.id: outer1
+                      });
+                </script>

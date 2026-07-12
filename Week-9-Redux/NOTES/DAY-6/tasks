@@ -1,0 +1,27 @@
+Project Title: Smart Task Manager (Redux Edition)
+
+Objective:
+Build a complete Task Management Dashboard using:
+    • React
+    • Redux Toolkit
+    • Async Thunk
+    • Proper architecture
+
+Mandatory Features:
+    • Authentication System (Redux Managed)
+    • Protected Routes
+    • Task CRUD Operations
+    • Filter by Status
+    • Search Tasks
+    • Loading & Error Handling
+    • Optimized Rendering
+    • Clean Folder Architecture
+Technical Requirements:
+Must use:
+    • createSlice
+    • configureStore
+    • useSelector
+    • useDispatch
+    • createAsyncThunk
+    • React.memo
+    • Lazy Loading

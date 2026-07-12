@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height: 2000px;">
+     <!--                        TASK:-
+    Traverse DOM, use event bubbling, and throttle scroll event-->
+
+<div  id="outer"    style="display:flex; flex-direction: column; align-items: center; height:max-content; width: 800px; background-color: blueviolet;">
+    <div id="inner" style="width: 500px;  height: 400px; background-color: aqua; display: flex; align-items: center; justify-content: center;">
+        <button id="myBtn">click</button>
+    </div>
+
+    
+</div>
+<script>
+     const outer = document.getElementById("outer")
+     const inner = document.getElementById("inner")
+     const myBtn = document.getElementById("myBtn")
+     outer.addEventListener("click",()=>console.log("outer"))
+     inner.addEventListener("click",()=>console.log("inner"))
+     myBtn.addEventListener("click",()=>console.log("myBtn"))
+
+
+
+
+  function handleScroll(){
+    console.log("Scrolling...");
+    
+}
+
+   
+function throttle(fnctn,delay){
+    let lastCall = 0;
+
+    return function(){
+        let now = new Date().getTime();
+        if(now-lastCall>=delay){
+            lastCall = now;
+            fnctn();
+        }
+   }
+}
+
+
+const throttled = throttle(handleScroll,2000)
+window.addEventListener("scroll",throttled)
+
+
+
+</script>
+
+
+</body>
+</html>

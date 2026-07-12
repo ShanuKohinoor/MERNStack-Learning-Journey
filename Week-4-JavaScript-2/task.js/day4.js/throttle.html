@@ -1,0 +1,143 @@
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+  </head>
+  
+    
+  
+  <!--Throttle  
+
+Throttle is a way to make a function run regularly at fixed intervals, no matter how many times the action happens.
+/t limits how often the function runs.
+
+
+
+
+
+
+1. Question:-
+   Build a webpage that logs a message User is scrolling... to the console at most once every 2 seconds, no matter how fast or frequently the user scrolls.
+
+Use the throttle technique with setTimeout or Date.now() and onScroll event, and keep the DOM interaction minimal."
+  
+
+Normal function -->
+<body onscroll="handleScroll()" > 
+
+                                <!-- Instead of this step, we can use addeventListener to
+                                     Then it will become like this:-
+                                    <script>
+
+                                       handleScroll() {
+                                            console.log("Scrolling:", new Date().toLocaleTimeString());
+                                       }
+
+                                      window.addEventListener("scroll", handleScroll);
+                                      </script>
+                                                                                        
+                                    -->
+
+
+
+  </body>
+  <div 
+   style="height: 2000px;">
+   <button>Scroll me</button>
+  </div>
+
+  <script>
+       function handleScroll(){
+         console.log("Scrolling:",new Date().toLocaleTimeString());
+        
+       }   
+
+                              // firstly i gave like this(new Date.toLocaleTimeString()). But i got Uncaught TypeError: Date.toLocaleTimeString is not a constructor
+                              // The reason was Date is a class.Not an instance. So i have to create Date object with new Date().
+                              // So i changed from new Date.toLocaleTimeString() -> new Date().toLocaleTimeString()
+
+                          // Out put will be like this after i scrolled 4 times:-
+                               //Scrolling: 17:51:07
+                               //Scrolling: 17:51:08
+                               //Scrolling: 17:51:09
+                               //Scrolling: 17:51:10
+                             // Here when we scroll, the browser fires onscroll event  many times, per second 
+
+  </script>
+
+<!--When we write same code with Throttle,:-
+             To avoid above issue, we use throttle. Throttle will help to allow function to run once 
+              every specific time interval. No matter how frequently event (like scroll) is triggered.
+             
+              Throttle helps to limit the frequency of calls to handleScroll.
+
+
+              -->
+<div  style="height: 2000px;">
+      <button style="width: 200px;  background-color: red;"> Scroll me again</button>
+</div>
+
+
+
+<script>
+       function handleScroll1(){
+        console.log("Scrolling:",new Date().toLocaleTimeString());
+        
+       }
+
+       
+
+        function throttle(fnctn,delay){
+          let lastCall = 0;              // Store the last time function call
+          return function(){
+            const now = Date.now();     // Current time in millisecond
+            if (now-lastCall >= delay){
+              lastCall = now;
+              fnctn();
+            }
+          }
+        }
+
+      const throttledHandlescroll = throttle(handleScroll1, 2000);  // create throttle version with 2 seconds delay
+      window.addEventListener('scroll',throttledHandlescroll)     //add eventListener with throttled function
+
+                                                      // Output will be :-
+                                                         //Scrolling: 18:28:29
+
+
+</script>
+                           
+<!--Throttle runs like this
+delay = 2000 ms (2 seconds)
+
+At time = 0 ms (start), lastCall = 0.
+
+User scrolls and triggers event at time = 100 ms:
+now - lastCall = 100 - 0 = 100 < 2000 -> too soon, don't call fn.
+
+User scrolls again at time = 1100 ms:
+1100 - 0 = 1100 < 2000 -> too soon, don't call fn.
+
+User scrolls at time = 1600 ms:
+1600 - 0 = 1600 < 2000 -> too soon, dn't call function. Skip.
+
+User scrolls at time = 2200 ms:
+2200 - 0 = 1100 >= 2000 -> call fn(), set lastCall = 2200.
+
+
+User scrolls at time = 3500 ms:
+3500-2200 = 1300 < 2000 -> too soon, don't call function. Skip
+
+User scrolls at time = 5000 ms:
+5000-2200 = 2800 >= 2000 ->call fn(), set lastCall = 5000.-->
+
+
+
+
+
+
+  </body>
+  </html>
